@@ -16,7 +16,7 @@ message Message {
     ContactCard contactCard = 11;
     MusicCard musicCard = 12;
     LocationCard locationCard = 13;
-    string forwardRefId = 14;
+    ForwardMessageRef forwardMsgRef = 14;
     XmlMessage xmlMessage = 15;
     JsonMessage jsonMessage = 16;
   }
