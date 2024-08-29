@@ -20,10 +20,10 @@ message EventWrapper {
     GroupMemberDecreaseEvent groupMemberDecreaseEvent = 205;
     GroupMemberTitleChangeEvent groupMemberTitleChangeEvent = 206;
     GroupMessageWithdrawEvent groupMessageWithdrawEvent = 207;
-    GroupMuteMemberEvent groupMuteMemberEvent = 208;
-    GroupMuteAllEvent groupMuteAllEvent = 209;
-    GroupUnmuteMemberEvent groupUnmuteMemberEvent = 210;
-    GroupUnmuteAllEvent groupUnmuteAllEvent = 211;
+    GroupShutUpMemberEvent groupMuteMemberEvent = 208;
+    GroupShutUpAllEvent groupMuteAllEvent = 209;
+    GroupLiftShutUpMemberEvent groupUnmuteMemberEvent = 210;
+    GroupLiftShutUpAllEvent groupUnmuteAllEvent = 211;
     GroupEmojiLikeEvent groupEmojiLikeEvent = 212;
 
     SomeoneRequestToAddBuddyEvent someoneRequestToAddBuddyEvent = 301;

@@ -59,25 +59,25 @@ message GroupMessageWithdrawEvent {
   string operatorUin = 3;
 }
 
-message GroupMuteMemberEvent {
+message GroupShutUpMemberEvent {
   string groupCode = 1;
   string targetUin = 2;
   uint32 duration = 3;
   string operatorUin = 4;
 }
 
-message GroupMuteAllEvent {
+message GroupShutUpAllEvent {
   string groupCode = 1;
   string operatorUin = 2;
 }
 
-message GroupUnmuteMemberEvent {
+message GroupLiftShutUpMemberEvent {
   string groupCode = 1;
   string targetUin = 2;
   string operatorUin = 3;
 }
 
-message GroupUnmuteAllEvent {
+message GroupLiftShutUpAllEvent {
   string groupCode = 1;
   string operatorUin = 2;
 }
