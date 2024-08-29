@@ -1,11 +1,17 @@
 syntax = 'proto3';
 package Laana;
 
+enum PeerType {
+  BUDDY = 0;
+  GROUP = 1;
+}
+
 message Message {
   string msgId = 1;
   uint64 time = 2;
   string senderUin = 3;
-  string peerUin = 4;
+  PeerType peerType = 4;
+  string peerUin = 5;
 
   oneof content {
     Bubble bubble = 11;

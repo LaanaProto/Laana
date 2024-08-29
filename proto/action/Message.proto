@@ -37,13 +37,8 @@ message SendMessagePong {
 }
 
 message SendPackedMessagesPing {
-  enum Target {
-    BUDDY = 0;
-    GROUP = 1;
-  }
-
-  Target target = 1;
-  string targetUin = 2;
+  PeerType peerType = 1;
+  string peerUin = 2;
   repeated OutgoingMessage messages = 3;
 }
 
