@@ -1,9 +1,9 @@
 syntax = 'proto3';
 package Laana;
 
-import 'event/Buddy.proto';
-import 'event/Group.proto';
-import 'event/Request.proto';
+import 'event/buddy.proto';
+import 'event/group.proto';
+import 'event/request.proto';
 
 message EventWrapper {
   string eventId = 1;
