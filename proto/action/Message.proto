@@ -79,3 +79,11 @@ message WithdrawMessagePing {
 
 message WithdrawMessagePong {
 }
+
+message MarkPeerMessageAsRead {
+  PeerType peerType = 1;
+  string peerUin = 2;
+}
+
+message MarkPeerMessageAsReadPong {
+}
