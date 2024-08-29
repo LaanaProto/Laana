@@ -1,0 +1,18 @@
+syntax = 'proto3';
+package Laana;
+
+message UploadCacheRequest {
+  enum CacheType {
+    IMAGE = 0;
+    FILE = 1;
+  }
+
+  CacheType type = 1;
+  string clientUploadSeq = 2;
+  bytes data = 3;
+}
+
+message UploadCacheResponse {
+  string cacheId = 1;
+  string clientUploadSeq = 2;
+}
