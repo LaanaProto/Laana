@@ -35,7 +35,7 @@ message Bubble {
 
     message At {
       string uin = 1;
-      string groupUin = 2;
+      string groupCode = 2;
       string name = 3;
     }
   }
