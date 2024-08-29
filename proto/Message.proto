@@ -3,22 +3,23 @@ package Laana;
 
 message Message {
   string msgId = 1;
-  string senderUin = 2;
-  string peerUin = 3;
+  uint64 time = 2;
+  string senderUin = 3;
+  string peerUin = 4;
   oneof content {
-    Bubble bubble = 4;
-    File file = 5;
-    SingleImage singleImage = 6;
-    MarketFace marketFace = 7;
-    File video = 8;
-    File voice = 9;
-    LinkCard linkCard = 10;
-    ContactCard contactCard = 11;
-    MusicCard musicCard = 12;
-    LocationCard locationCard = 13;
-    ForwardMessageRef forwardMsgRef = 14;
-    XmlMessage xmlMessage = 15;
-    JsonMessage jsonMessage = 16;
+    Bubble bubble = 11;
+    File file = 12;
+    SingleImage singleImage = 13;
+    MarketFace marketFace = 14;
+    File video = 15;
+    File voice = 16;
+    LinkCard linkCard = 17;
+    ContactCard contactCard = 18;
+    MusicCard musicCard = 19;
+    LocationCard locationCard = 20;
+    ForwardMessageRef forwardMsgRef = 21;
+    XmlMessage xmlMessage = 22;
+    JsonMessage jsonMessage = 23;
   }
 }
 
