@@ -6,6 +6,7 @@ message Message {
   uint64 time = 2;
   string senderUin = 3;
   string peerUin = 4;
+
   oneof content {
     Bubble bubble = 11;
     File file = 12;
@@ -68,7 +69,8 @@ message MarketFace {
   uint32 facePackageId = 1;
   string faceId = 2;
   string faceKey = 3;
-  string displayText = 4;
+
+  string displayText = 11;
 }
 
 message LinkCard {
@@ -108,12 +110,14 @@ message LocationCard {
 
 message ForwardMessageRef {
   string refId = 1;
-  string displayText = 2;
+
+  string displayText = 11;
 }
 
 message ForwardMessage {
   string refId = 1;
-  repeated Message messages = 2;
+
+  repeated Message messages = 11;
 }
 
 message XmlMessage {
