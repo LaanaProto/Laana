@@ -1,13 +1,13 @@
 syntax = 'proto3';
 package Laana;
 
-enum PeerType {
-  BUDDY = 0;
-  GROUP = 1;
-}
-
 message Peer {
-  PeerType type = 1;
+  enum Type {
+    BUDDY = 0;
+    GROUP = 1;
+  }
+
+  Type type = 1;
   string uin = 2;
 }
 
