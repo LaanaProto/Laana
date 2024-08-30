@@ -12,6 +12,7 @@ message SomeoneRequestToJoinGroupEvent {
   string joinRequestId = 1;
   string groupCode = 2;
   string requesterUin = 3;
+  optional string invitorUin = 4;
 
   optional string words = 11;
 }
