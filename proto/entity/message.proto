@@ -40,7 +40,7 @@ message Bubble {
       string text = 1;
       uint32 face = 2;
       At at = 3;
-      Image image = 4;
+      File image = 4;
     }
 
     message At {
@@ -54,14 +54,6 @@ message Bubble {
   optional string repliedMsgId = 2;
 }
 
-message Image {
-  oneof uri {
-    string url = 1;
-    string cacheId = 2;
-    bytes raw = 3;
-  }
-}
-
 message File {
   oneof uri {
     string url = 1;
@@ -71,7 +63,7 @@ message File {
 }
 
 message SingleImage {
-  Image image = 1;
+  File image = 1;
   string displayText = 2;
 }
 
@@ -87,7 +79,7 @@ message LinkCard {
   string url = 1;
   string title = 2;
   optional string description = 3;
-  optional Image image = 4;
+  optional File image = 4;
 }
 
 message ContactCard {
