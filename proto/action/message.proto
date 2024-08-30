@@ -22,14 +22,8 @@ message OutgoingMessage {
 }
 
 message SendMessagePing {
-  enum Target {
-    BUDDY = 0;
-    GROUP = 1;
-  }
-
-  Target target = 1;
-  string targetUin = 2;
-  OutgoingMessage message = 3;
+  Peer targetPeer = 1;
+  OutgoingMessage message = 2;
 }
 
 message SendMessagePong {
@@ -37,9 +31,8 @@ message SendMessagePong {
 }
 
 message SendPackedMessagesPing {
-  PeerType peerType = 1;
-  string peerUin = 2;
-  repeated OutgoingMessage messages = 3;
+  Peer targetPeer = 1;
+  repeated OutgoingMessage messages = 2;
 }
 
 message SendPackedMessagesPong {
@@ -81,8 +74,7 @@ message WithdrawMessagePong {
 }
 
 message MarkPeerMessageAsRead {
-  PeerType peerType = 1;
-  string peerUin = 2;
+  repeated Peer peers = 1;
 }
 
 message MarkPeerMessageAsReadPong {

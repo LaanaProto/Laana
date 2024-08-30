@@ -6,12 +6,16 @@ enum PeerType {
   GROUP = 1;
 }
 
+message Peer {
+  PeerType type = 1;
+  string uin = 2;
+}
+
 message Message {
   string msgId = 1;
   uint64 time = 2;
   string senderUin = 3;
-  PeerType peerType = 4;
-  string peerUin = 5;
+  Peer peer = 4;
 
   oneof content {
     Bubble bubble = 11;
