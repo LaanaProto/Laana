@@ -57,7 +57,7 @@ message GetMessagesPong {
 }
 
 message GetHistoryMessagesPing {
-  string peerUin = 1;
+  Peer targetPeer = 1;
   string lastMsgId = 2;
   uint32 count = 3;
 }
