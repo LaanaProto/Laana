@@ -71,6 +71,7 @@ message WithdrawMessagePing {
 }
 
 message WithdrawMessagePong {
+  bool success = 1;
 }
 
 message MarkPeerMessageAsRead {
@@ -78,6 +79,7 @@ message MarkPeerMessageAsRead {
 }
 
 message MarkPeerMessageAsReadPong {
+  repeated Peer failedPeers = 1;
 }
 
 message ForwardMessagePing {
