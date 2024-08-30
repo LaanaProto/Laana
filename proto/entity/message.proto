@@ -1,6 +1,8 @@
 syntax = 'proto3';
 package Laana;
 
+import 'proto/entity/file.proto';
+
 message Peer {
   enum Type {
     BUDDY = 0;
@@ -19,11 +21,11 @@ message Message {
 
   oneof content {
     Bubble bubble = 11;
-    File file = 12;
+    NormalFile file = 12;
     SingleImage singleImage = 13;
     MarketFace marketFace = 14;
-    File video = 15;
-    File voice = 16;
+    Video video = 15;
+    Voice voice = 16;
     LinkCard linkCard = 17;
     ContactCard contactCard = 18;
     MusicCard musicCard = 19;
@@ -54,12 +56,10 @@ message Bubble {
   optional string repliedMsgId = 2;
 }
 
-message File {
-  oneof uri {
-    string url = 1;
-    string cacheId = 2;
-    bytes raw = 3;
-  }
+message NormalFile {
+  File file = 1;
+  string name = 2;
+  uint64 size = 3;
 }
 
 message SingleImage {
@@ -73,6 +73,16 @@ message MarketFace {
   string faceKey = 3;
 
   string displayText = 11;
+}
+
+message Video {
+  File video = 1;
+  optional uint32 duration = 2;
+}
+
+message Voice {
+  File voice = 1;
+  uint32 duration = 2;
 }
 
 message LinkCard {

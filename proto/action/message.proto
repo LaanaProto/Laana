@@ -1,12 +1,13 @@
 syntax = 'proto3';
 package Laana;
 
+import 'proto/entity/file.proto';
 import 'proto/entity/message.proto';
 
 message OutgoingMessage {
   oneof content {
     Bubble bubble = 11;
-    File file = 12;
+    NormalFile file = 12;
     SingleImage singleImage = 13;
     MarketFace marketFace = 14;
     File video = 15;
