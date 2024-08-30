@@ -79,6 +79,10 @@ message CreateGroupFolderPing {
   // QQ does not allow nested folders
 }
 
+message CreateGroupFolderPong {
+  string folderId = 1;
+}
+
 message DeleteGroupFilePing {
   string groupCode = 1;
   string cacheId = 2;
