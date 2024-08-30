@@ -71,7 +71,7 @@ message WithdrawMessagePing {
   string msgId = 1;
 }
 
-message MarkPeerMessageAsRead {
+message MarkPeerMessageAsReadPing {
   Peer peer = 1;
 }
 
