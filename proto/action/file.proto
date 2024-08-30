@@ -68,6 +68,10 @@ message UploadGroupFilePing {
   optional string folderId = 3;
 }
 
+message UploadGroupFilePong {
+  string cacheId = 1;
+}
+
 message CreateGroupFolderPing {
   string groupCode = 1;
   string name = 2;

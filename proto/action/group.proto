@@ -40,6 +40,10 @@ message SetGroupAvatarPing {
   File avatar = 2;
 }
 
+message SetGroupAvatarPong {
+  string avatarCacheId = 1;
+}
+
 message SetGroupAdminPing {
   enum Operation {
     SET = 0;
