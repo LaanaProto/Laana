@@ -16,10 +16,6 @@ message HandleBuddyAddRequestPing {
   optional string rejectionWords = 11;
 }
 
-message HandleBuddyAddRequestPong {
-  bool success = 1;
-}
-
 message HandleGroupJoinRequestPing {
   enum Operation {
     ACCEPT = 0;
@@ -31,10 +27,6 @@ message HandleGroupJoinRequestPing {
   Operation operation = 2;
 
   optional string rejectionWords = 11;
-}
-
-message HandleGroupJoinRequestPong {
-  bool success = 1;
 }
 
 message HandleGroupInvitationPing {

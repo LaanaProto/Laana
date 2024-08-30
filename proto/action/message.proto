@@ -71,16 +71,8 @@ message WithdrawMessagePing {
   string msgId = 1;
 }
 
-message WithdrawMessagePong {
-  bool success = 1;
-}
-
 message MarkPeerMessageAsRead {
-  repeated Peer peers = 1;
-}
-
-message MarkPeerMessageAsReadPong {
-  repeated Peer failedPeers = 1;
+  Peer peer = 1;
 }
 
 message ForwardMessagePing {
@@ -91,9 +83,5 @@ message ForwardMessagePing {
 
   Operation operation = 1;
   repeated string msgIds = 2;
-  repeated Peer targetPeers = 3;
-}
-
-message ForwardMessagePong {
-  repeated Peer failedPeers = 1;
+  Peer targetPeer = 3;
 }

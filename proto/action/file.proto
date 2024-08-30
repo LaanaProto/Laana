@@ -16,16 +16,11 @@ message PrepareCacheByUrlPing {
 }
 
 message PrepareCacheByUrlPong {
-  bool success = 1;
-  optional string cacheId = 2;
+  string cacheId = 1;
 }
 
 message DestroyCachePing {
   string cacheId = 1;
-}
-
-message DestroyCachePong {
-  bool success = 1;
 }
 
 message GetFileDataPing {
@@ -73,10 +68,6 @@ message UploadGroupFilePing {
   optional string folderId = 3;
 }
 
-message UploadGroupFilePong {
-  bool success = 1;
-}
-
 message CreateGroupFolderPing {
   string groupCode = 1;
   string name = 2;
@@ -84,25 +75,12 @@ message CreateGroupFolderPing {
   // QQ does not allow nested folders
 }
 
-message CreateGroupFolderPong {
-  bool success = 1;
-  optional string folderId = 2;
-}
-
 message DeleteGroupFilePing {
   string groupCode = 1;
   string cacheId = 2;
 }
 
-message DeleteGroupFilePong {
-  bool success = 1;
-}
-
 message DeleteGroupFolderPing {
   string groupCode = 1;
   string folderId = 2;
-}
-
-message DeleteGroupFolderPong {
-  bool success = 1;
 }

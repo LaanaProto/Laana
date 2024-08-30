@@ -35,17 +35,9 @@ message SetGroupNamePing {
   string name = 2;
 }
 
-message SetGroupNamePong {
-  bool success = 1;
-}
-
 message SetGroupAvatarPing {
   string groupCode = 1;
   File avatar = 2;
-}
-
-message SetGroupAvatarPong {
-  bool success = 1;
 }
 
 message SetGroupAdminPing {
@@ -59,28 +51,16 @@ message SetGroupAdminPing {
   Operation operation = 3;
 }
 
-message SetGroupAdminPong {
-  bool success = 1;
-}
-
 message SetGroupCardPing {
   string groupCode = 1;
   string memberUin = 2;
   string card = 3;
 }
 
-message SetGroupCardPong {
-  bool success = 1;
-}
-
 message SetGroupSpecialTitlePing {
   string groupCode = 1;
   string memberUin = 2;
   string title = 3;
-}
-
-message SetGroupSpecialTitlePong {
-  bool success = 1;
 }
 
 message SetGroupShutUpPing {
@@ -90,10 +70,6 @@ message SetGroupShutUpPing {
     uint32 duration = 3;
     bool lift = 4;
   }
-}
-
-message SetGroupShutUpPong {
-  bool success = 1;
 }
 
 message SetGroupShutUpAllPing {
@@ -106,16 +82,8 @@ message KickGroupMemberPing {
   string memberUin = 2;
 }
 
-message KickGroupMemberPong {
-  bool success = 1;
-}
-
 message QuitGroupPing {
   string groupCode = 1;
-}
-
-message QuitGroupPong {
-  bool success = 1;
 }
 
 message GetPaginatedGroupEssenceMessagePing {
@@ -139,8 +107,4 @@ message GetAllGroupsEssenceMessagePong {
 message SetGroupEssenceMessagePing {
   string groupCode = 1;
   string messageId = 2;
-}
-
-message SetGroupEssenceMessagePong {
-  bool success = 1;
 }
