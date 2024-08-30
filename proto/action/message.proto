@@ -79,3 +79,18 @@ message MarkPeerMessageAsRead {
 
 message MarkPeerMessageAsReadPong {
 }
+
+message ForwardMessagePing {
+  enum Operation {
+    AS_SINGLETONS = 0;
+    AS_PACKED = 1;
+  }
+
+  Operation operation = 1;
+  repeated string msgIds = 2;
+  repeated Peer targetPeers = 3;
+}
+
+message ForwardMessagePong {
+  repeated Peer failedPeers = 1;
+}
