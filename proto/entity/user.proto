@@ -26,9 +26,10 @@ message BuddyRoleData {
 
 message GroupRoleData {
   enum PermissionLevel {
-    NORMAL = 0;
-    ADMIN = 1;
-    OWNER = 2;
+    FALLBACK = 0;
+    NORMAL = 2;
+    ADMIN = 3;
+    OWNER = 4;
   }
 
   PermissionLevel permissionLevel = 1;
