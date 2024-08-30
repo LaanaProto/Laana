@@ -5,11 +5,11 @@ import 'proto/entity/file.proto';
 import 'proto/entity/message.proto';
 import 'proto/entity/user.proto';
 
-message GetGroupMembersPing {
+message GetGroupMemberUinsPing {
   string groupCode = 1;
 }
 
-message GetGroupMembersPong {
+message GetGroupMemberUinsPong {
   repeated string memberUins = 1;
 }
 
