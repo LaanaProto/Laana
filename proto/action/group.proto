@@ -55,19 +55,19 @@ message SetGroupAdminPing {
   Operation operation = 3;
 }
 
-message SetGroupCardPing {
+message SetGroupMemberCardPing {
   string groupCode = 1;
   string memberUin = 2;
   string card = 3;
 }
 
-message SetGroupSpecialTitlePing {
+message SetGroupMemberSpecialTitlePing {
   string groupCode = 1;
   string memberUin = 2;
   string title = 3;
 }
 
-message SetGroupShutUpPing {
+message SetGroupMemberShutUpPing {
   string groupCode = 1;
   string memberUin = 2;
   oneof operation {
