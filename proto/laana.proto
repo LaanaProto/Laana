@@ -1,8 +1,8 @@
 syntax = 'proto3';
 package Laana;
 
-import 'proto/action/wrapper.proto';
-import 'proto/event/wrapper.proto';
+import 'action/wrapper.proto';
+import 'event/wrapper.proto';
 
 message LannaDataWrapper {
   oneof data {

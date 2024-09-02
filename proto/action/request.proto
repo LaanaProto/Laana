@@ -1,7 +1,7 @@
 syntax = 'proto3';
 package Laana;
 
-import 'proto/event/request.proto';
+import 'event/request.proto';
 
 message HandleBuddyAddRequestPing {
   enum Operation {

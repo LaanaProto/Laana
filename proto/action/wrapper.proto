@@ -1,11 +1,11 @@
 syntax = 'proto3';
 package Laana;
 
-import 'proto/action/message.proto';
-import 'proto/action/contact.proto';
-import 'proto/action/group.proto';
-import 'proto/action/request.proto';
-import 'proto/action/file.proto';
+import 'action/message.proto';
+import 'action/contact.proto';
+import 'action/group.proto';
+import 'action/request.proto';
+import 'action/file.proto';
 
 message ActionPing {
   string clientPingId = 1;
