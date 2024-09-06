@@ -33,6 +33,8 @@ message Message {
     ForwardMessageRef forwardMsgRef = 21;
     XmlMessage xmlMessage = 22;
     JsonMessage jsonMessage = 23;
+
+    ExtendedMessage extendedMessage = 99;
   }
 }
 
@@ -138,4 +140,9 @@ message XmlMessage {
 
 message JsonMessage {
   string json = 1;
+}
+
+message ExtendedMessage {
+  string type = 1;
+  bytes content = 2;
 }
