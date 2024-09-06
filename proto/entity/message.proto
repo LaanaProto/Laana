@@ -34,6 +34,7 @@ message Message {
     XmlMessage xmlMessage = 22;
     ArkMessage arkMessage = 23;
 
+    UnknownMessage unknownMessage = 98;
     ExtendedMessage extendedMessage = 99;
   }
 }
@@ -140,6 +141,11 @@ message XmlMessage {
 
 message ArkMessage {
   string json = 1;
+}
+
+message UnknownMessage {
+  string rawContent = 1;
+  optional string typeIdentifier = 2;
 }
 
 message ExtendedMessage {
