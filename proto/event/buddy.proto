@@ -7,5 +7,4 @@ message BuddyAddedEvent {
 
 message BuddyMessageWithdrawEvent {
   string messageId = 1;
-  string operatorUin = 2;
 }
