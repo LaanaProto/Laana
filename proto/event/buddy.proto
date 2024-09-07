@@ -5,6 +5,6 @@ message BuddyAddedEvent {
   string buddyUin = 1;
 }
 
-message BuddyMessageWithdrawEvent {
+message BuddyMessageWithdrawalEvent {
   string messageId = 1;
 }

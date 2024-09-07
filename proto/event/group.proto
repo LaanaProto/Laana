@@ -53,7 +53,7 @@ message GroupMemberTitleChangeEvent {
   string operatorUin = 5;
 }
 
-message GroupMessageWithdrawEvent {
+message GroupMessageWithdrawalEvent {
   string groupCode = 1;
   string messageId = 2;
   string operatorUin = 3;

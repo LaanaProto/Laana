@@ -11,7 +11,7 @@ message EventWrapper {
   string botUin = 3;
   oneof event {
     BuddyAddedEvent buddyAddedEvent = 101;
-    BuddyMessageWithdrawEvent buddyMessageWithdrawEvent = 102;
+    BuddyMessageWithdrawalEvent buddyMessageWithdrawEvent = 102;
 
     GroupAdminChangeEvent groupAdminChangeEvent = 201;
     GroupEssenceMessageEvent groupEssenceMessageEvent = 202;
@@ -19,7 +19,7 @@ message EventWrapper {
     GroupMemberIncreaseEvent groupMemberIncreaseEvent = 204;
     GroupMemberDecreaseEvent groupMemberDecreaseEvent = 205;
     GroupMemberTitleChangeEvent groupMemberTitleChangeEvent = 206;
-    GroupMessageWithdrawEvent groupMessageWithdrawEvent = 207;
+    GroupMessageWithdrawalEvent groupMessageWithdrawEvent = 207;
     GroupShutUpMemberEvent groupMuteMemberEvent = 208;
     GroupShutUpAllEvent groupMuteAllEvent = 209;
     GroupLiftShutUpMemberEvent groupUnmuteMemberEvent = 210;
