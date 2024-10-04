@@ -1,0 +1,19 @@
+{
+  "name": "@laana-proto/def",
+  "version": "0.3.0",
+  "description": "Type definition for Laana",
+  "main": "src/index.ts",
+  "repository": "git+https://github.com/LaanaProto/Laana.git",
+  "author": "Young",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "prepublishOnly": "node ./scripts/prepublish/generate-ts-files.js && node scripts/prepublish/export-all-classes.js"
+  },
+  "devDependencies": {
+    "@protobuf-ts/plugin": "^2.9.4"
+  },
+  "dependencies": {
+    "fs-extra": "^11.2.0"
+  }
+}
