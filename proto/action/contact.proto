@@ -24,7 +24,7 @@ message GetRecentContactListPing {
 }
 
 message GetRecentContactListPong {
-  repeated Peer recentContacts = 1;
+  repeated LaanaPeer recentContacts = 1;
 }
 
 message GetBuddyInfoPing {
@@ -32,7 +32,7 @@ message GetBuddyInfoPing {
 }
 
 message GetBuddyInfoPong {
-  UserEntity buddy = 1;
+  LaanaUserEntity buddy = 1;
 }
 
 message GetGroupInfoPing {
@@ -40,5 +40,5 @@ message GetGroupInfoPing {
 }
 
 message GetGroupInfoPong {
-  Group group = 1;
+  LaanaGroup group = 1;
 }

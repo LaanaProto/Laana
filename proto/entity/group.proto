@@ -1,7 +1,7 @@
 syntax = 'proto3';
 package Laana;
 
-message Group {
+message LaanaGroup {
   string groupCode = 1;
   string groupName = 2;
   uint32 memberCount = 3;

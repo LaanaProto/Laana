@@ -19,7 +19,7 @@ message GetGroupMemberInfoPing {
 }
 
 message GetGroupMemberInfoPong {
-  UserEntity member = 1;
+  LaanaUserEntity member = 1;
 }
 
 message GetAllGroupMembersInfoPing {
@@ -27,7 +27,7 @@ message GetAllGroupMembersInfoPing {
 }
 
 message GetAllGroupMembersInfoPong {
-  repeated UserEntity members = 1;
+  repeated LaanaUserEntity members = 1;
 }
 
 message SetGroupNamePing {
@@ -37,7 +37,7 @@ message SetGroupNamePing {
 
 message SetGroupAvatarPing {
   string groupCode = 1;
-  File avatar = 2;
+  LaanaFile avatar = 2;
 }
 
 message SetGroupAvatarPong {
@@ -97,7 +97,7 @@ message GetPaginatedGroupEssenceMessagePing {
 }
 
 message GetPaginatedGroupEssenceMessagePong {
-  repeated Message essenceMessages = 1;
+  repeated LaanaMessage essenceMessages = 1;
 }
 
 message GetAllGroupsEssenceMessagePing {
@@ -105,7 +105,7 @@ message GetAllGroupsEssenceMessagePing {
 }
 
 message GetAllGroupsEssenceMessagePong {
-  repeated Message essenceMessages = 1;
+  repeated LaanaMessage essenceMessages = 1;
 }
 
 message SetGroupEssenceMessagePing {

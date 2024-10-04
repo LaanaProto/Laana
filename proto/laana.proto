@@ -7,24 +7,24 @@ import 'event/wrapper.proto';
 
 message LaanaDataWrapper {
   oneof data {
-    ActionPing actionPing = 1;
-    ActionPong actionPong = 2;
-    EventWrapper event = 3;
-    Message message = 4;
+    LaanaActionPing actionPing = 1;
+    LaanaActionPong actionPong = 2;
+    LaanaEventWrapper event = 3;
+    LaanaMessage message = 4;
 
-    ClientSideHandshake clientSideHandshake = 11;
-    ServerSideHandshake serverSideHandshake = 12;
+    LaanaClientSideHandshake clientSideHandshake = 11;
+    LaanaServerSideHandshake serverSideHandshake = 12;
 
-    ExtendedData extendedData = 99;
+    LaanaExtendedData extendedData = 99;
   }
 }
 
-message ExtendedData {
+message LaanaExtendedData {
   string key = 1;
   bytes value = 2;
 }
 
-message ServerSideHandshake {
+message LaanaServerSideHandshake {
   string serverVersion = 1;
   Result result = 2;
 
@@ -35,7 +35,7 @@ message ServerSideHandshake {
   }
 }
 
-message ClientSideHandshake {
+message LaanaClientSideHandshake {
   string clientVersion = 1;
 
   optional string token = 11;

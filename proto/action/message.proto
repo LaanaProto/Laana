@@ -6,15 +6,15 @@ import 'entity/message.proto';
 
 message OutgoingMessage {
   oneof content {
-    Bubble bubble = 11;
-    NormalFile file = 12;
-    SingleImage singleImage = 13;
-    MarketFace marketFace = 14;
-    File video = 15;
-    File voice = 16;
+    LaanaMessage.Bubble bubble = 11;
+    LaanaMessage.NormalFile file = 12;
+    LaanaMessage.SingleImage singleImage = 13;
+    LaanaMessage.MarketFace marketFace = 14;
+    LaanaFile video = 15;
+    LaanaFile voice = 16;
     // LinkCard linkCard = 17; - unable, needs signature
     // ContactCard contactCard = 18; - unable, needs signature
-    MusicCard musicCard = 19;
+    LaanaMessage.MusicCard musicCard = 19;
     // LocationCard locationCard = 20; - unable, needs signature
     // ForwardMessageRef forwardMsgRef = 21; - unable, use packed messages instead
     // XmlMessage xmlMessage = 22;
@@ -23,7 +23,7 @@ message OutgoingMessage {
 }
 
 message SendMessagePing {
-  Peer targetPeer = 1;
+  LaanaPeer targetPeer = 1;
   OutgoingMessage message = 2;
 }
 
@@ -32,13 +32,13 @@ message SendMessagePong {
 }
 
 message SendPackedMessagesPing {
-  Peer targetPeer = 1;
+  LaanaPeer targetPeer = 1;
   repeated OutgoingMessage messages = 2;
 }
 
 message SendPackedMessagesPong {
   string packedMsgId = 1;
-  ForwardMessageRef forwardMsgRef = 2;
+  LaanaMessage.ForwardMessageRef forwardMsgRef = 2;
   repeated string msgIds = 3;
 }
 
@@ -47,7 +47,7 @@ message GetMessagePing {
 }
 
 message GetMessagePong {
-  Message message = 1;
+  LaanaMessage message = 1;
 }
 
 message GetMessagesPing {
@@ -55,17 +55,17 @@ message GetMessagesPing {
 }
 
 message GetMessagesPong {
-  repeated Message messages = 1;
+  repeated LaanaMessage messages = 1;
 }
 
 message GetHistoryMessagesPing {
-  Peer targetPeer = 1;
+  LaanaPeer targetPeer = 1;
   string lastMsgId = 2;
   uint32 count = 3;
 }
 
 message GetHistoryMessagesPong {
-  repeated Message messages = 1;
+  repeated LaanaMessage messages = 1;
 }
 
 message WithdrawMessagePing {
@@ -73,7 +73,7 @@ message WithdrawMessagePing {
 }
 
 message MarkPeerMessageAsReadPing {
-  Peer peer = 1;
+  LaanaPeer peer = 1;
 }
 
 message ForwardMessagePing {
@@ -84,7 +84,7 @@ message ForwardMessagePing {
 
   Operation operation = 1;
   repeated string msgIds = 2;
-  Peer targetPeer = 3;
+  LaanaPeer targetPeer = 3;
 }
 
 message GetForwardedMessagesPing {
@@ -92,5 +92,5 @@ message GetForwardedMessagesPing {
 }
 
 message GetForwardedMessagesPong {
-  ForwardMessage forwardMessage = 1;
+  LaanaMessage.ForwardMessage forwardMessage = 1;
 }

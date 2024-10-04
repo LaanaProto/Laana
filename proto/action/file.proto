@@ -43,7 +43,7 @@ message GetGroupFileListPong {
 
 message UploadGroupFilePing {
   string groupCode = 1;
-  File file = 2;
+  LaanaFile file = 2;
   optional string folderId = 3;
 }
 

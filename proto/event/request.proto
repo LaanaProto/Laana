@@ -1,14 +1,14 @@
 syntax = 'proto3';
 package Laana;
 
-message SomeoneRequestToAddBuddyEvent {
+message LaanaSomeoneRequestToAddBuddyEvent {
   string buddyRequestId = 1;
   string requesterUin = 2;
 
   optional string words = 11;
 }
 
-message SomeoneRequestToJoinGroupEvent {
+message LaanaSomeoneRequestToJoinGroupEvent {
   string joinRequestId = 1;
   string groupCode = 2;
   string requesterUin = 3;
@@ -17,7 +17,7 @@ message SomeoneRequestToJoinGroupEvent {
   optional string words = 11;
 }
 
-message SelfInvitedToGroupEvent {
+message LaanaSelfInvitedToGroupEvent {
   enum State {
     // May need the invitee (the bot itself) to accept the invitation
     PENDING_AT_INVITEE = 0;

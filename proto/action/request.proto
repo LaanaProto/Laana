@@ -41,5 +41,5 @@ message HandleGroupInvitationPing {
 }
 
 message HandleGroupInvitationPong {
-  SelfInvitedToGroupEvent.State nextState = 1;
+  LaanaSelfInvitedToGroupEvent.State nextState = 1;
 }

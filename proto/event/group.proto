@@ -1,7 +1,7 @@
 syntax = 'proto3';
 package Laana;
 
-message GroupAdminChangeEvent {
+message LaanaGroupAdminChangeEvent {
   enum Operation {
     SET = 0;
     UNSET = 1;
@@ -12,7 +12,7 @@ message GroupAdminChangeEvent {
   Operation operation = 3;
 }
 
-message GroupEssenceMessageEvent {
+message LaanaGroupEssenceMessageEvent {
   enum Operation {
     SET = 0;
     UNSET = 1;
@@ -24,7 +24,7 @@ message GroupEssenceMessageEvent {
   string operatorUin = 4;
 }
 
-message GroupMemberCardChangeEvent {
+message LaanaGroupMemberCardChangeEvent {
   string groupCode = 1;
   string targetUin = 2;
   string newCard = 3;
@@ -32,20 +32,20 @@ message GroupMemberCardChangeEvent {
   optional string operatorUin = 5;
 }
 
-message GroupMemberIncreaseEvent {
+message LaanaGroupMemberIncreaseEvent {
   string groupCode = 1;
   string newMemberUin = 2;
   optional string operatorUin = 3;
   optional string invitorUin = 4;
 }
 
-message GroupMemberDecreaseEvent {
+message LaanaGroupMemberDecreaseEvent {
   string groupCode = 1;
   string oldMemberUin = 2;
   optional string operatorUin = 3;
 }
 
-message GroupMemberTitleChangeEvent {
+message LaanaGroupMemberTitleChangeEvent {
   string groupCode = 1;
   string targetUin = 2;
   string newTitle = 3;
@@ -53,36 +53,36 @@ message GroupMemberTitleChangeEvent {
   string operatorUin = 5;
 }
 
-message GroupMessageWithdrawalEvent {
+message LaanaGroupMessageWithdrawalEvent {
   string groupCode = 1;
   string messageId = 2;
   string operatorUin = 3;
 }
 
-message GroupShutUpMemberEvent {
+message LaanaGroupShutUpMemberEvent {
   string groupCode = 1;
   string targetUin = 2;
   uint32 duration = 3;
   string operatorUin = 4;
 }
 
-message GroupShutUpAllEvent {
+message LaanaGroupShutUpAllEvent {
   string groupCode = 1;
   string operatorUin = 2;
 }
 
-message GroupLiftShutUpMemberEvent {
+message LaanaGroupLiftShutUpMemberEvent {
   string groupCode = 1;
   string targetUin = 2;
   string operatorUin = 3;
 }
 
-message GroupLiftShutUpAllEvent {
+message LaanaGroupLiftShutUpAllEvent {
   string groupCode = 1;
   string operatorUin = 2;
 }
 
-message GroupEmojiLikeEvent {
+message LaanaGroupEmojiLikeEvent {
   enum Operation {
     LIKE = 0;
     DISLIKE = 1;

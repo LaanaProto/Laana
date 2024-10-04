@@ -7,7 +7,7 @@ import 'action/group.proto';
 import 'action/request.proto';
 import 'action/file.proto';
 
-message ActionPing {
+message LaanaActionPing {
   string clientPingId = 1;
 
   oneof ping {
@@ -74,7 +74,7 @@ message FailedPong {
   string reason = 1;
 }
 
-message ActionPong {
+message LaanaActionPong {
   string clientPingId = 1;
   oneof pong {
     FailedPong failed = 11;

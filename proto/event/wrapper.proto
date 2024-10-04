@@ -5,36 +5,36 @@ import 'event/buddy.proto';
 import 'event/group.proto';
 import 'event/request.proto';
 
-message EventWrapper {
+message LaanaEventWrapper {
   string eventId = 1;
   uint64 time = 2;
   string botUin = 3;
   oneof event {
-    BuddyAddedEvent buddyAddedEvent = 101;
-    BuddyMessageWithdrawalEvent buddyMessageWithdrawEvent = 102;
+    LaanaBuddyAddedEvent buddyAddedEvent = 101;
+    LaanaBuddyMessageWithdrawalEvent buddyMessageWithdrawEvent = 102;
 
-    GroupAdminChangeEvent groupAdminChangeEvent = 201;
-    GroupEssenceMessageEvent groupEssenceMessageEvent = 202;
-    GroupMemberCardChangeEvent groupMemberCardChangeEvent = 203;
-    GroupMemberIncreaseEvent groupMemberIncreaseEvent = 204;
-    GroupMemberDecreaseEvent groupMemberDecreaseEvent = 205;
-    GroupMemberTitleChangeEvent groupMemberTitleChangeEvent = 206;
-    GroupMessageWithdrawalEvent groupMessageWithdrawEvent = 207;
-    GroupShutUpMemberEvent groupMuteMemberEvent = 208;
-    GroupShutUpAllEvent groupMuteAllEvent = 209;
-    GroupLiftShutUpMemberEvent groupUnmuteMemberEvent = 210;
-    GroupLiftShutUpAllEvent groupUnmuteAllEvent = 211;
-    GroupEmojiLikeEvent groupEmojiLikeEvent = 212;
+    LaanaGroupAdminChangeEvent groupAdminChangeEvent = 201;
+    LaanaGroupEssenceMessageEvent groupEssenceMessageEvent = 202;
+    LaanaGroupMemberCardChangeEvent groupMemberCardChangeEvent = 203;
+    LaanaGroupMemberIncreaseEvent groupMemberIncreaseEvent = 204;
+    LaanaGroupMemberDecreaseEvent groupMemberDecreaseEvent = 205;
+    LaanaGroupMemberTitleChangeEvent groupMemberTitleChangeEvent = 206;
+    LaanaGroupMessageWithdrawalEvent groupMessageWithdrawEvent = 207;
+    LaanaGroupShutUpMemberEvent groupMuteMemberEvent = 208;
+    LaanaGroupShutUpAllEvent groupMuteAllEvent = 209;
+    LaanaGroupLiftShutUpMemberEvent groupUnmuteMemberEvent = 210;
+    LaanaGroupLiftShutUpAllEvent groupUnmuteAllEvent = 211;
+    LaanaGroupEmojiLikeEvent groupEmojiLikeEvent = 212;
 
-    SomeoneRequestToAddBuddyEvent someoneRequestToAddBuddyEvent = 301;
-    SomeoneRequestToJoinGroupEvent someoneRequestToJoinGroupEvent = 302;
-    SelfInvitedToGroupEvent selfInvitedToGroupEvent = 303;
+    LaanaSomeoneRequestToAddBuddyEvent someoneRequestToAddBuddyEvent = 301;
+    LaanaSomeoneRequestToJoinGroupEvent someoneRequestToJoinGroupEvent = 302;
+    LaanaSelfInvitedToGroupEvent selfInvitedToGroupEvent = 303;
 
-    ExtendedEvent extendedEvent = 9999;
+    LaanaExtendedEvent extendedEvent = 9999;
   }
 }
 
-message ExtendedEvent {
+message LaanaExtendedEvent {
   string eventName = 1;
   bytes eventData = 2;
 }

@@ -1,10 +1,10 @@
 syntax = 'proto3';
 package Laana;
 
-message BuddyAddedEvent {
+message LaanaBuddyAddedEvent {
   string buddyUin = 1;
 }
 
-message BuddyMessageWithdrawalEvent {
+message LaanaBuddyMessageWithdrawalEvent {
   string messageId = 1;
 }
