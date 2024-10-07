@@ -41,5 +41,5 @@ message HandleGroupInvitationPing {
 }
 
 message HandleGroupInvitationPong {
-  LaanaSelfInvitedToGroupEvent.State nextState = 1;
+  LaanaSelfInvitedToGroupEvent.State nextState = 1; // 处理该邀请后，下一步的状态
 }

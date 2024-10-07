@@ -7,5 +7,5 @@ message LaanaGroup {
   uint32 memberCount = 3;
   uint32 maxMemberCount = 4;
 
-  optional string groupRemark = 11;
+  optional string groupRemark = 11; // 群备注，类似好友备注
 }

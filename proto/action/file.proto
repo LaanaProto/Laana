@@ -33,7 +33,7 @@ message GetFileDataPong {
 
 message GetGroupFileListPing {
   string groupCode = 1;
-  optional string folderId = 2;
+  optional string folderId = 2; // 未指定时默认为根目录
 }
 
 message GetGroupFileListPong {
@@ -44,7 +44,7 @@ message GetGroupFileListPong {
 message UploadGroupFilePing {
   string groupCode = 1;
   LaanaFile file = 2;
-  optional string folderId = 3;
+  optional string folderId = 3; // 未指定时默认为根目录
 }
 
 message UploadGroupFilePong {

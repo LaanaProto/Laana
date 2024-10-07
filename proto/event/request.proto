@@ -19,18 +19,14 @@ message LaanaSomeoneRequestToJoinGroupEvent {
 
 message LaanaSelfInvitedToGroupEvent {
   enum State {
-    // May need the invitee (the bot itself) to accept the invitation
-    PENDING_AT_INVITEE = 0;
-    // May be accepted by the invitee, but need an admin to approve the invitation
-    PENDING_AT_ADMIN = 1;
-    // May succeed
-    SUCCEEDED = 2;
+    PENDING_AT_INVITEE = 0; // 需要邀请者同意
+    PENDING_AT_ADMIN = 1; // 邀请者已同意，等待管理员审批
+    SUCCEEDED = 2; // 邀请成功
 
-    // The normal process is: 0 -> 1 -> 2
-    // Some groups may not need an admin to approve the invitation,
-    // and the process may be simplified to: 0 -> 2
-    // Some groups may not even need the invitee to accept the invitation,
-    // and the process may be simplified to: 2
+    // 一般的流程是：0 -> 1 -> 2
+    // 有些群组可能不需要管理员审批，流程可能简化为：0 -> 2
+    // 有些群组甚至不需要被邀请者同意，流程可能简化为：2
+    // 流程也可能在任何时候被邀请者或邀请者中断。
   }
 
   string invitationId = 1;

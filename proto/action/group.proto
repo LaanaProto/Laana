@@ -70,15 +70,17 @@ message SetGroupMemberSpecialTitlePing {
 message SetGroupMemberShutUpPing {
   string groupCode = 1;
   string memberUin = 2;
+
+  // 操作，禁言或解禁
   oneof operation {
-    uint32 duration = 3;
-    bool lift = 4;
+    uint32 duration = 3; // 禁言时长，单位为秒
+    bool lift = 4; // 解禁
   }
 }
 
 message SetGroupShutUpAllPing {
   string groupCode = 1;
-  bool lift = 2;
+  bool lift = 2; // 禁言或解禁，true 为禁言，false 为解禁
 }
 
 message KickGroupMemberPing {
@@ -92,14 +94,15 @@ message QuitGroupPing {
 
 message GetPaginatedGroupEssenceMessagePing {
   string groupCode = 1;
-  uint32 startIndex = 2;
-  uint32 maxCount = 3;
+  uint32 startIndex = 2; // 起始索引，从 0 开始
+  uint32 maxCount = 3; // 最大数量，也即分页大小
 }
 
 message GetPaginatedGroupEssenceMessagePong {
   repeated LaanaMessage essenceMessages = 1;
 }
 
+// 获取所有群精华消息。慎用！可能会导致性能问题。
 message GetAllGroupsEssenceMessagePing {
   string groupCode = 1;
 }

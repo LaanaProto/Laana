@@ -30,7 +30,7 @@ message LaanaMessage {
     ContactCard contactCard = 18;
     MusicCard musicCard = 19;
     LocationCard locationCard = 20;
-    ForwardMessageRef forwardMsgRef = 21;
+    ForwardMessageRef forwardMsgRef = 21; // 转发消息不进行递归解析，而是提供一个引用 ID，延迟解析，防止占用过多资源
     XmlMessage xmlMessage = 22;
     ArkMessage arkMessage = 23;
 
@@ -66,7 +66,7 @@ message LaanaMessage {
 
   message SingleImage {
     LaanaFile image = 1;
-    string displayText = 2;
+    string displayText = 2; // 发送图片时的文字描述，默认为 [图片]
   }
 
   message MarketFace {
@@ -74,12 +74,12 @@ message LaanaMessage {
     string faceId = 2;
     string faceKey = 3;
 
-    string displayText = 11;
+    string displayText = 11; // 发送表情时的文字描述，默认为 [动画表情]
   }
 
   message Video {
     LaanaFile video = 1;
-    optional uint32 duration = 2;
+    optional uint32 duration = 2; // 视频时长，单位为秒，若不提供则由服务端解析
   }
 
   message Voice {
@@ -138,15 +138,18 @@ message LaanaMessage {
     string xml = 1;
   }
 
+  // 卡片消息
   message ArkMessage {
     string json = 1;
   }
 
+  // 未知消息，用于存储无法解析的消息
   message UnknownMessage {
-    string rawContent = 1;
-    optional string typeIdentifier = 2;
+    string rawContent = 1; // Json 序列化的消息内容
+    optional string typeIdentifier = 2; // 用于标识消息类型，以便识别这些标识符的客户端可以解析消息
   }
 
+  // 扩展消息，与 UnknownMessage 的区别在于，ExtendedMessage 的 content 是 protobuf 序列化的消息
   message ExtendedMessage {
     string type = 1;
     bytes content = 2;
