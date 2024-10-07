@@ -7,7 +7,7 @@ import 'event/request.proto';
 
 message LaanaEventWrapper {
   string eventId = 1;
-  uint64 time = 2;
+  uint32 time = 2;
   string botUin = 3;
   oneof event {
     LaanaBuddyAddedEvent buddyAddedEvent = 101;
