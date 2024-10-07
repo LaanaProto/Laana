@@ -31,18 +31,6 @@ message SendMessagePong {
   string msgId = 1;
 }
 
-// 以合并转发的方式发送多条消息
-message SendPackedMessagesPing {
-  LaanaPeer targetPeer = 1;
-  repeated OutgoingMessage messages = 2;
-}
-
-message SendPackedMessagesPong {
-  string packedMsgId = 1;
-  LaanaMessage.ForwardMessageRef forwardMsgRef = 2;
-  repeated string msgIds = 3;
-}
-
 message GetMessagePing {
   string msgId = 1;
 }

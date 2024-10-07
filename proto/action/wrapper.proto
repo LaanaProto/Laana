@@ -8,11 +8,12 @@ import 'action/request.proto';
 import 'action/file.proto';
 
 message LaanaActionPing {
-  string clientPingId = 1;
+  reserved 102;
 
+  string clientPingId = 1;
   oneof ping {
     SendMessagePing sendMessage = 101;
-    SendPackedMessagesPing sendPackedMessages = 102;
+    // SendPackedMessagesPing sendPackedMessages = 102;
     GetMessagePing getMessage = 103;
     GetMessagesPing getMessages = 104;
     GetHistoryMessagesPing getHistoryMessages = 105;
@@ -75,12 +76,14 @@ message FailedPong {
 }
 
 message LaanaActionPong {
+  reserved 102;
+
   string clientPingId = 1;
   oneof pong {
     FailedPong failed = 11;
 
     SendMessagePong sendMessage = 101;
-    SendPackedMessagesPong sendPackedMessages = 102;
+    // SendPackedMessagesPong sendPackedMessages = 102;
     GetMessagePong getMessage = 103;
     GetMessagesPong getMessages = 104;
     GetHistoryMessagesPong getHistoryMessages = 105;
