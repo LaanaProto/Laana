@@ -15,7 +15,7 @@ message LaanaPeer {
 
 message LaanaMessage {
   string msgId = 1;
-  uint64 time = 2;
+  uint32 time = 2;
   string senderUin = 3;
   LaanaPeer peer = 4;
 
