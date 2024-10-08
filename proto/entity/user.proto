@@ -33,10 +33,10 @@ message LaanaUserEntity {
 
     PermissionLevel permissionLevel = 1;
     optional string groupNick = 2;
-    optional uint32 joinTime = 3;
-    uint32 lastSpeakTime = 4;
+    optional uint64 joinTime = 3;
+    uint64 lastSpeakTime = 4;
     uint32 level = 5;
-    uint32 shutUpTime = 6;
+    uint64 shutUpTime = 6;
     bool isRobot = 7;
   }
 }

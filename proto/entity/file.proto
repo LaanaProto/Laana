@@ -15,17 +15,17 @@ message GroupFile {
   uint64 size = 3;
   uint32 businessId = 4;
   string uploaderUin = 5;
-  uint32 uploadTime = 6;
-  uint32 modifyTime = 7;
+  uint64 uploadTime = 6;
+  uint64 modifyTime = 7;
   uint32 downloadCount = 8;
-  optional uint32 lastModifyTime = 9;
-  optional uint32 expireTime = 10;
+  optional uint64 lastModifyTime = 9;
+  optional uint64 expireTime = 10;
 }
 
 message GroupFolder {
   string folderId = 1;
   string name = 2;
   string creatorUin = 5;
-  uint32 createTime = 6;
+  uint64 createTime = 6;
   uint32 fileCount = 11;
 }
