@@ -4,6 +4,22 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <PackageId>LaanaProto.Definition</PackageId>
+        <Version>0.3.2</Version>
+        <Authors>Young</Authors>
+        <Description>Type definition for Laana</Description>
+        <PackageReadmeFile>./README.md</PackageReadmeFile>
     </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Google.Protobuf" Version="3.28.2" />
+
+        <None Include="./README.md" Pack="true" PackagePath="/"/>
+    </ItemGroup>
+
+    <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+        <Exec Command="echo Generating C# code from proto files..." />
+        <Exec Command="protoc -I ../../../proto ../../../proto/action/* ../../../proto/event/* ../../../proto/entity/* ../../../proto/* --csharp_out ./Generated" />
+    </Target>
 
 </Project>
