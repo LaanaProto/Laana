@@ -1,11 +1,11 @@
 syntax = 'proto3';
 package Laana;
 
-import 'action/message.proto';
-import 'action/contact.proto';
-import 'action/group.proto';
-import 'action/request.proto';
-import 'action/file.proto';
+import 'action/message_action.proto';
+import 'action/contact_action.proto';
+import 'action/group_action.proto';
+import 'action/request_action.proto';
+import 'action/file_action.proto';
 
 message LaanaActionPing {
   reserved 102;
