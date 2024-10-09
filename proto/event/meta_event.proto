@@ -1,0 +1,8 @@
+syntax = 'proto3';
+package Laana;
+
+message LaanaBotOnlineEvent {
+}
+
+message LaanaBotOfflineEvent {
+}

@@ -1,6 +1,7 @@
 syntax = 'proto3';
 package Laana;
 
+import 'event/meta_event.proto';
 import 'event/buddy_event.proto';
 import 'event/group_event.proto';
 import 'event/request_event.proto';
@@ -29,6 +30,9 @@ message LaanaEventWrapper {
     LaanaSomeoneRequestToAddBuddyEvent someoneRequestToAddBuddyEvent = 301;
     LaanaSomeoneRequestToJoinGroupEvent someoneRequestToJoinGroupEvent = 302;
     LaanaSelfInvitedToGroupEvent selfInvitedToGroupEvent = 303;
+
+    LaanaBotOnlineEvent botOnlineEvent = 1001;
+    LaanaBotOfflineEvent botOfflineEvent = 1002;
 
     LaanaExtendedEvent extendedEvent = 9999;
   }
