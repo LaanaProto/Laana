@@ -4,7 +4,7 @@ const path = require('path');
 
 fsExtra.ensureDirSync('./src/generated');
 
-const protoDir = path.resolve('../../proto');
+const protoDir = path.resolve('../../../proto');
 
 function listProtoFiles(dir) {
     const protoFiles = [];
