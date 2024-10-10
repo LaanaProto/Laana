@@ -19,14 +19,6 @@ message GetAllGroupsPong {
   repeated string groupCodes = 1;
 }
 
-message GetRecentContactListPing {
-  uint32 maxCount = 1;
-}
-
-message GetRecentContactListPong {
-  repeated LaanaPeer recentContacts = 1;
-}
-
 message GetBuddyInfoPing {
   string buddyUin = 1;
 }
