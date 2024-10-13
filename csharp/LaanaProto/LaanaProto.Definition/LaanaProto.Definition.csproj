@@ -20,7 +20,7 @@
 
     <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
         <Exec Command="echo Generating C# code from proto files..." />
-        <Exec Command="protoc -I ../../../proto ../../../proto/action/* ../../../proto/event/* ../../../proto/entity/* ../../../proto/* --csharp_out ./Generated" />
+        <Exec Command="protoc -I ../../../proto ../../../proto/action/*.proto ../../../proto/event/*.proto ../../../proto/entity/*.proto ../../../proto/*.proto --csharp_out ./Generated" />
     </Target>
 
 </Project>
