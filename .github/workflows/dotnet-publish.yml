@@ -25,6 +25,7 @@ jobs:
       - name: Roll up
         run: |
           cd ./csharp/LaanaProto/LaanaProto.Definition/
+          mkdir Generated
           dotnet pack
       - name: Show compiled files
         # needs dry-run be true
