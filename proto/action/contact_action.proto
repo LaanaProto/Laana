@@ -1,7 +1,6 @@
 syntax = 'proto3';
 package Laana;
 
-import 'entity/message.proto';
 import 'entity/user.proto';
 import 'entity/group.proto';
 
