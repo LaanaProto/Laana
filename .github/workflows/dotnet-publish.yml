@@ -1,0 +1,38 @@
+name: Publish .NET Package
+
+on:
+  release:
+    types: [ created ]
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        description: 'Run the workflow without publishing the package'
+        required: true
+        default: 'true'
+        type: boolean
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - name: Roll up
+        run: |
+          cd ./csharp/LaanaProto/LaanaProto.Definition/
+          dotnet pack
+      - name: Show compiled files
+        # needs dry-run be true
+        if: ${{ github.event.inputs.dry-run == 'true' }}
+        run: |
+          cd ./csharp/LaanaProto/LaanaProto.Definition/
+          ls .
+      - name: Publish NuGet package
+        # needs dry-run be false
+        if: ${{ github.event.inputs.dry-run == 'false' }}
+        run: |
+          cd ./csharp/LaanaProto/LaanaProto.Definition/
+          dotnet nuget push ./bin/Release/*.nupkg --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json

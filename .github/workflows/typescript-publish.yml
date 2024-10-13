@@ -1,0 +1,29 @@
+name: Publish Node.js Package
+
+on:
+  release:
+    types: [ created ]
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        description: 'Run the workflow without publishing the package'
+        required: true
+        default: 'true'
+        type: boolean
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org/
+      - run: |
+          cd ./typescript/@laana-proto/def/
+          npm ci
+          npm publish --access public --dry-run ${{ github.event.inputs.dry-run }}
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
