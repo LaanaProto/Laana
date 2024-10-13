@@ -9,6 +9,7 @@
         <Authors>Young</Authors>
         <Description>Type definition for Laana</Description>
         <PackageReadmeFile>./README.md</PackageReadmeFile>
+        <RepositoryUrl>https://github.com/LaanaProto/Laana</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
