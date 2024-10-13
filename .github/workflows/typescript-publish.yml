@@ -24,6 +24,8 @@ jobs:
       - run: |
           cd ./typescript/@laana-proto/def/
           npm ci
+          mkdir src
+          mkdir src/generated
           npm publish --access public --dry-run ${{ github.event.inputs.dry-run }}
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
