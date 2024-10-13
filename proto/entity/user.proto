@@ -10,7 +10,7 @@ message LaanaUserEntity {
 
   string uin = 1;
   string nick = 2;
-  string sex = 3;
+  Sex sex = 3;
   optional uint32 age = 4;
   optional string qid = 5;
 
