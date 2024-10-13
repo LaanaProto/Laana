@@ -30,7 +30,7 @@ message LaanaMessage {
     ContactCard contactCard = 18;
     MusicCard musicCard = 19;
     LocationCard locationCard = 20;
-    ForwardMessageRef forwardMsgRef = 21; // 转发消息不进行递归解析，而是提供一个引用 ID，延迟解析，防止占用过多资源
+    ForwardedMessageRef forwardedMsgRef = 21; // 转发消息不进行递归解析，而是提供一个引用 ID，延迟解析，防止占用过多资源
     XmlMessage xmlMessage = 22;
     ArkMessage arkMessage = 23;
 
@@ -122,13 +122,13 @@ message LaanaMessage {
     string address = 4;
   }
 
-  message ForwardMessageRef {
+  message ForwardedMessageRef {
     string refId = 1;
 
     string displayText = 11;
   }
 
-  message ForwardMessage {
+  message ForwardedMessage {
     string refId = 1;
 
     repeated LaanaMessage messages = 11;

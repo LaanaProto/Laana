@@ -16,7 +16,7 @@ message OutgoingMessage {
     // ContactCard contactCard = 18; - unable, needs signature
     LaanaMessage.MusicCard musicCard = 19;
     // LocationCard locationCard = 20; - unable, needs signature
-    // ForwardMessageRef forwardMsgRef = 21; - unable, use packed messages instead
+    // ForwardedMessageRef forwardedMsgRef = 21; - unable, use packed messages instead
     // XmlMessage xmlMessage = 22;
     // JsonMessage jsonMessage = 23;
   }
@@ -81,5 +81,5 @@ message GetForwardedMessagesPing {
 }
 
 message GetForwardedMessagesPong {
-  LaanaMessage.ForwardMessage forwardMessage = 1;
+  LaanaMessage.ForwardedMessage forwardMessage = 1;
 }
