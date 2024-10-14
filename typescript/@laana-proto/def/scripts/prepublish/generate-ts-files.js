@@ -1,6 +1,7 @@
-const fs = require('fs');
+const fs = require('node:fs');
 const fsExtra = require('fs-extra');
-const path = require('path');
+const path = require('node:path');
+const process = require('node:process');
 
 fsExtra.ensureDirSync('./src/generated');
 
@@ -37,6 +38,7 @@ childProcess.exec(
     (error) => {
         if (error) {
             console.error(`exec error: ${error}`);
+            process.exit(1);
         } else {
             console.log('Successfully generated TypeScript files from proto files.');
         }
