@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>LaanaProto.Definition</PackageId>
-        <Version>0.5.0</Version>
+        <Version>0.5.2</Version>
         <Authors>Young</Authors>
         <Description>Type definition for Laana</Description>
         <PackageReadmeFile>./README.md</PackageReadmeFile>
