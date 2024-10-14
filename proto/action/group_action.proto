@@ -80,7 +80,7 @@ message SetGroupMemberShutUpPing {
 
 message SetGroupShutUpAllPing {
   string groupCode = 1;
-  bool lift = 2; // 禁言或解禁，true 为禁言，false 为解禁
+  bool lift = 2; // 禁言或解禁，true 为解禁，false 为禁言
 }
 
 message KickGroupMemberPing {
