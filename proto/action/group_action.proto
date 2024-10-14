@@ -92,22 +92,13 @@ message QuitGroupPing {
   string groupCode = 1;
 }
 
-message GetPaginatedGroupEssenceMessagePing {
+message GetGroupEssenceMessagePing {
   string groupCode = 1;
   uint32 startIndex = 2; // 起始索引，从 0 开始
   uint32 maxCount = 3; // 最大数量，也即分页大小
 }
 
-message GetPaginatedGroupEssenceMessagePong {
-  repeated LaanaMessage essenceMessages = 1;
-}
-
-// 获取所有群精华消息。慎用！可能会导致性能问题。
-message GetAllGroupsEssenceMessagePing {
-  string groupCode = 1;
-}
-
-message GetAllGroupsEssenceMessagePong {
+message GetGroupEssenceMessagePong {
   repeated LaanaMessage essenceMessages = 1;
 }
 
