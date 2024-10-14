@@ -8,7 +8,7 @@ import 'action/request_action.proto';
 import 'action/file_action.proto';
 
 message LaanaActionPing {
-  reserved 102, 203;
+  reserved 102, 203, 314;
 
   string clientPingId = 1;
   oneof ping {
@@ -40,8 +40,8 @@ message LaanaActionPing {
     SetGroupShutUpAllPing setGroupShutUpAll = 310;
     KickGroupMemberPing kickGroupMember = 311;
     QuitGroupPing quitGroup = 312;
-    GetPaginatedGroupEssenceMessagePing getPaginatedGroupEssenceMessage = 313;
-    GetAllGroupsEssenceMessagePing getAllGroupsEssenceMessage = 314;
+    GetGroupEssenceMessagePing getGroupEssenceMessage = 313;
+    // GetAllGroupsEssenceMessagePing getAllGroupsEssenceMessage = 314;
     SetGroupEssenceMessagePing setGroupEssenceMessage = 315;
 
     HandleBuddyAddRequestPing handleBuddyAddRequest = 401;
@@ -76,7 +76,7 @@ message FailedPong {
 }
 
 message LaanaActionPong {
-  reserved 102, 203;
+  reserved 102, 203, 314;
 
   string clientPingId = 1;
   oneof pong {
@@ -110,8 +110,8 @@ message LaanaActionPong {
     GeneralSuccessPong setGroupShutUpAll = 310;
     GeneralSuccessPong kickGroupMember = 311;
     GeneralSuccessPong quitGroup = 312;
-    GetPaginatedGroupEssenceMessagePong getPaginatedGroupEssenceMessage = 313;
-    GetAllGroupsEssenceMessagePong getAllGroupsEssenceMessage = 314;
+    GetGroupEssenceMessagePong getGroupEssenceMessage = 313;
+    // GetAllGroupsEssenceMessagePong getAllGroupsEssenceMessage = 314;
     GeneralSuccessPong setGroupEssenceMessage = 315;
 
     GeneralSuccessPong handleBuddyAddRequest = 401;
