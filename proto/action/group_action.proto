@@ -91,18 +91,3 @@ message KickGroupMemberPing {
 message QuitGroupPing {
   string groupCode = 1;
 }
-
-message GetGroupEssenceMessagePing {
-  string groupCode = 1;
-  uint32 startIndex = 2; // 起始索引，从 0 开始
-  uint32 maxCount = 3; // 最大数量，也即分页大小
-}
-
-message GetGroupEssenceMessagePong {
-  repeated LaanaMessage essenceMessages = 1;
-}
-
-message SetGroupEssenceMessagePing {
-  string groupCode = 1;
-  string messageId = 2;
-}
