@@ -27,6 +27,7 @@ message LaanaExtendedData {
 message LaanaServerSideHandshake {
   string serverVersion = 1;
   Result result = 2;
+  string serverName = 3;
 
   enum Result {
     success = 0;
@@ -39,6 +40,7 @@ message LaanaServerSideHandshake {
 
 message LaanaClientSideHandshake {
   string clientVersion = 1;
+  string clientName = 2;
 
   optional string token = 11;
 
