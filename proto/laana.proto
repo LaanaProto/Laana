@@ -33,6 +33,8 @@ message LaanaServerSideHandshake {
     wrongToken = 1;
     unmatchedLaanaVersion = 2;
   }
+
+  optional bytes extendedHandshakeData = 999;
 }
 
 message LaanaClientSideHandshake {
