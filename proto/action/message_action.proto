@@ -4,7 +4,7 @@ package Laana;
 import 'entity/file.proto';
 import 'entity/message.proto';
 
-message OutgoingMessage {
+message LaanaOutgoingMessage {
   oneof content {
     LaanaMessage.Bubble bubble = 11;
     LaanaMessage.NormalFile file = 12;
@@ -24,7 +24,7 @@ message OutgoingMessage {
 
 message SendMessagePing {
   LaanaPeer targetPeer = 1;
-  OutgoingMessage message = 2;
+  LaanaOutgoingMessage message = 2;
 }
 
 message SendMessagePong {
