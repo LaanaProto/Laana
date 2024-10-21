@@ -26,7 +26,7 @@ Laana 协议的名称源自虚拟角色、武士道旗下 MyGO!!!!! 乐队的主
 
 - 协议端
   - [NapCatQQ](https://github.com/NapNeko/NapCatQQ/tree/laana) (Official support, under development)
-  - [Lagrange.Core](https://github.com/Wesley-Young/Lagrange.Laana) (Official support, under development)
+  - [Lagrange.Core](https://github.com/LagrangeDev/Lagrange.Laana) (Official support, under development)
 - 应用端
   - NoneBot2 (planned)
   - Koishi (planned)
