@@ -16,11 +16,11 @@ Laana 协议的名称源自虚拟角色、武士道旗下 MyGO!!!!! 乐队的主
 
 ### 语言支持
 
-| Language   | Definition                                                  | Client  |
-|------------|-------------------------------------------------------------|---------|
-| JavaScript | [Yes](https://www.npmjs.com/package/@laana-proto/def)       | Pending |
-| C#         | [Yes](https://www.nuget.org/packages/LaanaProto.Definition) | Pending |
-| Python     | Pending                                                     | Pending |
+| Language   | Definition                                                       | Client  |
+|------------|------------------------------------------------------------------|---------|
+| JavaScript | [Official](https://www.npmjs.com/package/@laana-proto/def)       | Planned |
+| C#         | [Official](https://www.nuget.org/packages/LaanaProto.Definition) |         |
+| Python     | Planned                                                          | Planned |
 
 ### 框架支持
 
@@ -28,8 +28,8 @@ Laana 协议的名称源自虚拟角色、武士道旗下 MyGO!!!!! 乐队的主
   - [NapCatQQ](https://github.com/NapNeko/NapCatQQ/tree/laana) (Official support, under development)
   - [Lagrange.Core](https://github.com/Wesley-Young/Lagrange.Laana) (Official support, under development)
 - 应用端
-  - NoneBot2 (Official support, Pending)
-  - Koishi (Official support, Pending)
+  - NoneBot2 (planned)
+  - Koishi (planned)
 
 ## 开发
 
