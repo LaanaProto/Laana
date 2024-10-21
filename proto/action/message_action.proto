@@ -16,9 +16,19 @@ message LaanaOutgoingMessage {
     // ContactCard contactCard = 18; - unable, needs signature
     LaanaMessage.MusicCard musicCard = 19;
     // LocationCard locationCard = 20; - unable, needs signature
-    // ForwardedMessageRef forwardedMsgRef = 21; - unable, use packed messages instead
+    ConstructedForwardedMessage forwardedMessage = 21;
     // XmlMessage xmlMessage = 22;
     // JsonMessage jsonMessage = 23;
+  }
+
+  message ConstructedForwardedMessage {
+    repeated Node nodes = 1;
+
+    message Node {
+      string senderUin = 1;
+      string senderName = 2;
+      LaanaOutgoingMessage message = 3;
+    }
   }
 }
 
