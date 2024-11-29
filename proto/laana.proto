@@ -30,9 +30,9 @@ message LaanaServerSideHandshake {
   string serverName = 3;
 
   enum Result {
-    success = 0;
-    wrongToken = 1;
-    unmatchedLaanaVersion = 2;
+    SUCCESS = 0;
+    FAILURE_WRONG_TOKEN = 1;
+    FAILURE_LAANA_VERSION_MISMATCH = 2;
   }
 
   optional bytes extendedHandshakeData = 999;
