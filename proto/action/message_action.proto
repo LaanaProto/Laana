@@ -43,6 +43,7 @@ message SendMessagePong {
 
 message GetMessagePing {
   string msgId = 1;
+  LaanaPeer peer = 4;
 }
 
 message GetMessagePong {
