@@ -12,13 +12,13 @@ message LaanaOutgoingMessage {
     LaanaMessage.MarketFace marketFace = 14;
     LaanaFile video = 15;
     LaanaFile voice = 16;
-    // LinkCard linkCard = 17; - unable, needs signature
-    // ContactCard contactCard = 18; - unable, needs signature
+    LaanaMessage.LinkCard linkCard = 17;
+    LaanaMessage.ContactCard contactCard = 18;
     LaanaMessage.MusicCard musicCard = 19;
-    // LocationCard locationCard = 20; - unable, needs signature
+    LaanaMessage.LocationCard locationCard = 20;
     ConstructedForwardedMessage forwardedMessage = 21;
-    // XmlMessage xmlMessage = 22;
-    // JsonMessage jsonMessage = 23;
+    LaanaMessage.XmlMessage xmlMessage = 22;
+    LaanaMessage.ArkMessage arkMessage = 23;
   }
 
   message ConstructedForwardedMessage {
