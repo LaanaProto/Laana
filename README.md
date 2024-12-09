@@ -1,5 +1,5 @@
 <div align="center">
-<img src="static/logo.png" alt="logo" width="20%">
+<img src="docs/static/logo.png" alt="logo" width="20%">
 </div>
 
 ---
@@ -35,7 +35,7 @@ Laana 协议的名称源自虚拟角色、武士道旗下 MyGO!!!!! 乐队的主
 
 ### 如果你是协议实现者...
 
-请参阅 `proto` 文件夹下的 `.proto` 文件，以了解 Laana 协议的具体内容；同时，请参阅 [`docs` 文件夹](./docs/README.md)下的文档，以了解实现 Laana 协议的具体细节。
+请参阅 `proto` 文件夹下的 `.proto` 文件，以了解 Laana 协议的具体内容；同时，请参阅 [`docs` 文件夹](docs/implementation/index)下的文档，以了解实现 Laana 协议的具体细节。
 
 ### 如果你是聊天机器人开发者...
 

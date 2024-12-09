@@ -1,0 +1,16 @@
+{
+  "name": "laana-docs",
+  "version": "1.0.0",
+  "description": "The documentation for Laana the protocol",
+  "scripts": {
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
+  },
+  "author": "Young",
+  "license": "MIT",
+  "devDependencies": {
+    "vitepress": "^1.5.0",
+    "vue": "^3.5.13"
+  }
+}
