@@ -5,44 +5,87 @@ import 'entity/message.proto';
 import 'action/action_wrapper.proto';
 import 'event/event_wrapper.proto';
 
+// 所有类型消息的包装器
 message LaanaDataWrapper {
+
+  // 用于区分消息类型
   oneof data {
+
+    // 调用 API 的请求
     LaanaActionPing actionPing = 1;
+
+    // API 的响应
     LaanaActionPong actionPong = 2;
+
+    // 事件
     LaanaEventWrapper event = 3;
+
+    // 消息
     LaanaMessage message = 4;
 
+
+    // 客户端的握手请求
     LaanaClientSideHandshake clientSideHandshake = 11;
+
+    // 服务端的握手响应
     LaanaServerSideHandshake serverSideHandshake = 12;
 
+
+    // 未声明的扩展数据
     LaanaExtendedData extendedData = 99;
   }
 }
 
+// 扩展数据的包装器
 message LaanaExtendedData {
+
+  // 用于区分扩展数据类型
   string key = 1;
+
+  // 扩展数据
   bytes value = 2;
 }
 
+// 客户端和服务端的握手消息
 message LaanaServerSideHandshake {
+
+  // 服务端的 Laana 协议版本
   string serverVersion = 1;
+
+  // 握手结果
   Result result = 2;
+
+  // 服务端的名称，例如 Lagrange.Core，用于区分不同的实现
   string serverName = 3;
 
   enum Result {
+
+    // 握手成功
     SUCCESS = 0;
+
+    // 握手失败，原因：错误的 token
     FAILURE_WRONG_TOKEN = 1;
+
+    // 握手失败，原因：版本不匹配
     FAILURE_LAANA_VERSION_MISMATCH = 2;
   }
 
+  // 握手时的附加数据
   optional bytes extendedHandshakeData = 999;
 }
 
+// 客户端的握手消息
 message LaanaClientSideHandshake {
+
+  // 客户端的 Laana 协议版本
   string clientVersion = 1;
+
+  // 客户端的名称，例如 NoneBot2，用于区分不同的实现
   string clientName = 2;
 
+  // 客户端的 token，用于验证客户端的身份
   optional string token = 11;
 
+  // 握手时的附加数据
   optional bytes extendedHandshakeData = 999;
 }

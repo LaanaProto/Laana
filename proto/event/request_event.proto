@@ -1,26 +1,49 @@
 syntax = 'proto3';
 package Laana;
 
+// 有人请求添加好友事件
 message LaanaSomeoneRequestToAddBuddyEvent {
+
+  // 请求 ID
   string buddyRequestId = 1;
+
+  // 请求者 Uin
   string requesterUin = 2;
 
+  // 请求时的附言
   optional string words = 11;
 }
 
+// 有人请求加入群组事件
 message LaanaSomeoneRequestToJoinGroupEvent {
+
+  // 请求 ID
   string joinRequestId = 1;
+
+  // 群号
   string groupCode = 2;
+
+  // 请求者 Uin
   string requesterUin = 3;
+
+  // 邀请者 Uin
   optional string invitorUin = 4;
 
+  // 请求时的附言
   optional string words = 11;
 }
 
+// 有人邀请 Bot 加入群组事件
 message LaanaSelfInvitedToGroupEvent {
   enum State {
-    PENDING_AT_INVITEE = 0; // 需要邀请者同意
-    PENDING_AT_ADMIN = 1; // 邀请者已同意，等待管理员审批
+
+    // 需要邀请者同意
+    PENDING_AT_INVITEE = 0;
+
+    // 邀请者已同意，等待管理员审批
+    PENDING_AT_ADMIN = 1;
+
+    // 邀请成功
     SUCCEEDED = 2; // 邀请成功
 
     // 一般的流程是：0 -> 1 -> 2
@@ -29,9 +52,15 @@ message LaanaSelfInvitedToGroupEvent {
     // 流程也可能在任何时候被邀请者或邀请者中断。
   }
 
+  // 请求 ID
   string invitationId = 1;
+
+  // 群号
   string groupCode = 2;
+
+  // 邀请者 Uin
   string invitorUin = 3;
 
+  // 邀请时的附言
   optional string words = 11;
 }

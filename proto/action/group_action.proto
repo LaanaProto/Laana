@@ -5,89 +5,168 @@ import 'entity/file.proto';
 import 'entity/message.proto';
 import 'entity/user.proto';
 
+// 获取所有群成员 Uin - 请求
 message GetGroupMemberUinsPing {
+
+  // 群号
   string groupCode = 1;
 }
 
+// 获取所有群成员 Uin - 响应
 message GetGroupMemberUinsPong {
+
+  // 群成员 Uin 列表
   repeated string memberUins = 1;
 }
 
+// 获取群成员信息 - 请求
 message GetGroupMemberInfoPing {
+
+  // 群号
   string groupCode = 1;
+
+  // 群成员 Uin
   string memberUin = 2;
 }
 
+// 获取群成员信息 - 响应
 message GetGroupMemberInfoPong {
+
+  // 群成员信息
   LaanaUserEntity member = 1;
 }
 
+// 获取所有群成员信息 - 请求
 message GetAllGroupMembersInfoPing {
+
+  // 群号
   string groupCode = 1;
 }
 
+// 获取所有群成员信息 - 响应
 message GetAllGroupMembersInfoPong {
+
+  // 群成员信息列表
   repeated LaanaUserEntity members = 1;
 }
 
+// 获取群成员信息 - 请求
 message SetGroupNamePing {
+
+  // 群号
   string groupCode = 1;
+
+  // 群名称
   string name = 2;
 }
 
+// 设置群头像 - 请求
 message SetGroupAvatarPing {
+
+  // 群号
   string groupCode = 1;
+
+  // 群头像
   LaanaFile avatar = 2;
 }
 
+// 获取群成员信息 - 响应
 message SetGroupAvatarPong {
+
+  // 头像的缓存 ID
   string avatarCacheId = 1;
 }
 
+// 设置群管理员 - 请求
 message SetGroupAdminPing {
   enum Operation {
+
+    // 设置
     SET = 0;
+
+    // 取消
     UNSET = 1;
   }
 
+  // 群号
   string groupCode = 1;
+
+  // 群成员 Uin
   string memberUin = 2;
+
+  // 操作，设置或取消
   Operation operation = 3;
 }
 
+// 设置群成员名片 - 请求
 message SetGroupMemberCardPing {
+
+  // 群号
   string groupCode = 1;
+
+  // 群成员 Uin
   string memberUin = 2;
+
+  // 名片
   string card = 3;
 }
 
+// 设置群成员专属头衔 - 请求
 message SetGroupMemberSpecialTitlePing {
+
+  // 群号
   string groupCode = 1;
+
+  // 群成员 Uin
   string memberUin = 2;
+
+  // 专属头衔
   string title = 3;
 }
 
+// 设置群成员禁言 - 请求
 message SetGroupMemberShutUpPing {
+
+  // 群号
   string groupCode = 1;
+
+  // 群成员 Uin
   string memberUin = 2;
 
   // 操作，禁言或解禁
   oneof operation {
-    uint32 duration = 3; // 禁言时长，单位为秒
-    bool lift = 4; // 解禁
+
+    // 表示禁言，duration 为禁言时长，单位为秒
+    uint32 duration = 3;
+
+    // 表示解禁
+    bool lift = 4;
   }
 }
 
+// 设置全员禁言 - 请求
 message SetGroupShutUpAllPing {
+
+  // 群号
   string groupCode = 1;
-  bool lift = 2; // 禁言或解禁，true 为解禁，false 为禁言
+
+  // 操作，禁言或解禁，false 为禁言，true 为解禁
+  bool lift = 2;
 }
 
+// 踢出群成员 - 请求
 message KickGroupMemberPing {
+
+  // 群号
   string groupCode = 1;
+
+  // 群成员 Uin
   string memberUin = 2;
 }
 
+// 退出群 - 请求
 message QuitGroupPing {
+
+  // 群号
   string groupCode = 1;
 }

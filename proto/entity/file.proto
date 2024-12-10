@@ -1,7 +1,11 @@
 syntax = 'proto3';
 package Laana;
 
+// Laana 文件
 message LaanaFile {
+
+  // 一个 Laana 文件可以是一个 URL，一个缓存 ID，或者一个原始的字节流。
+  // 在实现时，所有的 Laana 文件都应该被转换为一个缓存 ID。
   oneof uri {
     string url = 1;
     string cacheId = 2;
@@ -9,23 +13,55 @@ message LaanaFile {
   }
 }
 
+// 群文件
 message GroupFile {
+
+  // 缓存 ID，用于获取文件数据
   string cacheId = 1;
+
+  // 文件名
   string name = 2;
+
+  // 文件大小
   uint64 size = 3;
+
+  // 文件类型
   uint32 businessId = 4;
+
+  // 上传者 Uin
   string uploaderUin = 5;
+
+  // 上传时间
   uint64 uploadTime = 6;
+
+  // 修改时间
   uint64 modifyTime = 7;
+
+  // 下载次数
   uint32 downloadCount = 8;
+
+  // 最后修改时间
   optional uint64 lastModifyTime = 9;
+
+  // 过期时间
   optional uint64 expireTime = 10;
 }
 
+// 群文件夹
 message GroupFolder {
+
+  // 文件夹 ID
   string folderId = 1;
+
+  // 文件夹名
   string name = 2;
+
+  // 创建者 Uin
   string creatorUin = 5;
+
+  // 创建时间
   uint64 createTime = 6;
+
+  // 包含的文件数量
   uint32 fileCount = 11;
 }

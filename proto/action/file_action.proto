@@ -3,14 +3,21 @@ package Laana;
 
 import 'entity/file.proto';
 
+// 上传缓存 - 请求
 message UploadCachePing {
+
+  // 数据
   bytes data = 1;
 }
 
+// 上传缓存 - 响应
 message UploadCachePong {
+
+  // 缓存 ID
   string cacheId = 1;
 }
 
+// 获取缓存 - 请求
 message PrepareCacheByUrlPing {
   enum Method {
     GET = 0;
@@ -19,64 +26,120 @@ message PrepareCacheByUrlPing {
     DELETE = 3;
   }
 
+  // URL
   string url = 1;
+
+  // 请求的 Method，默认为 GET
   optional Method method = 2;
+
+  // 请求头
   map<string, string> headers = 3;
 }
 
+// 获取缓存 - 响应
 message PrepareCacheByUrlPong {
+
+  // 缓存 ID
   string cacheId = 1;
 }
 
+// 销毁缓存 - 请求
 message DestroyCachePing {
+
+  // 缓存 ID
   string cacheId = 1;
 }
 
+// 获取文件数据 - 请求
 message GetFileDataPing {
+
+  // 缓存 ID
   string cacheId = 1;
 }
 
+// 获取文件数据 - 响应
 message GetFileDataPong {
+
+  // 字节数据
   bytes data = 1;
 }
 
+// 获取群文件列表 - 请求
 message GetGroupFileListPing {
+
+  // 群号
   string groupCode = 1;
-  optional string folderId = 2; // 未指定时默认为根目录
+
+  // 文件夹 ID，默认为根目录
+  optional string folderId = 2;
 }
 
+// 获取群文件列表 - 响应
 message GetGroupFileListPong {
+
+  // 文件列表
   repeated GroupFile files = 1;
+
+  // 文件夹列表
   repeated GroupFolder folders = 2;
 }
 
+// 上传群文件 - 请求
 message UploadGroupFilePing {
+
+  // 群号
   string groupCode = 1;
+
+  // 文件
   LaanaFile file = 2;
-  optional string folderId = 3; // 未指定时默认为根目录
+
+  // 文件夹 ID，默认为根目录
+  optional string folderId = 3;
 }
 
+// 上传群文件 - 响应
 message UploadGroupFilePong {
+
+  // 缓存 ID
   string cacheId = 1;
 }
 
+// 创建群文件夹 - 请求
 message CreateGroupFolderPing {
+
+  // 群号
   string groupCode = 1;
+
+  // 文件夹名
   string name = 2;
+
+  // 父文件夹 ID，但 QQ 不支持文件夹嵌套
   // optional string parentFolderId = 3;
-  // QQ does not allow nested folders
 }
 
+// 创建群文件夹 - 响应
 message CreateGroupFolderPong {
+
+  // 文件夹 ID
   string folderId = 1;
 }
 
+// 删除群文件 - 请求
 message DeleteGroupFilePing {
+
+  // 群号
   string groupCode = 1;
+
+  // 缓存 ID
   string cacheId = 2;
 }
 
+// 删除群文件夹 - 请求
 message DeleteGroupFolderPing {
+
+  // 群号
   string groupCode = 1;
+
+  // 文件夹 ID
   string folderId = 2;
 }

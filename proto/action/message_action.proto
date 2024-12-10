@@ -4,7 +4,10 @@ package Laana;
 import 'entity/file.proto';
 import 'entity/message.proto';
 
+// 将要发送的消息，不包含 msgSeq 等元数据
 message LaanaOutgoingMessage {
+
+  // 消息类型及内容，对于不同类型的解释详见 LaanaMessage
   oneof content {
     LaanaMessage.Bubble bubble = 11;
     LaanaMessage.NormalFile file = 12;
@@ -21,67 +24,123 @@ message LaanaOutgoingMessage {
     LaanaMessage.ArkMessage arkMessage = 23;
   }
 
+  // 构造（伪造）的转发消息
   message ConstructedForwardedMessage {
+    // 转发的消息节点
     repeated Node nodes = 1;
 
     message Node {
+
+      // 发送者 Uin
       string senderUin = 1;
+
+      // 显示的发送者名称
       string senderName = 2;
+
+      // 消息内容
       LaanaOutgoingMessage message = 3;
     }
   }
 }
 
+// 发送消息 - 请求
 message SendMessagePing {
+
+  // 目标
   LaanaPeer targetPeer = 1;
+
+  // 消息
   LaanaOutgoingMessage message = 2;
 }
 
+// 发送消息 - 响应
 message SendMessagePong {
+
+  // 发送的消息对应的 msgSeq
   uint64 msgSeq = 1;
 }
 
+// 获取消息 - 请求
 message GetMessagePing {
+
+  // 消息的 msgSeq
   uint64 msgSeq = 1;
+
+  // 消息来源
   LaanaPeer peer = 2;
 }
 
+// 获取消息 - 响应
 message GetMessagePong {
+
+  // 获取的消息
   LaanaMessage message = 1;
 }
 
+// 批量获取消息 - 请求
 message GetMessagesPing {
+
+  // 消息的 msgSeq 列表
   repeated string msgSeqs = 1;
+
+  // 消息来源
   LaanaPeer peer = 2;
 }
 
+// 批量获取消息 - 响应
 message GetMessagesPong {
+
+  // 获取的消息列表
   repeated LaanaMessage messages = 1;
 }
 
+// 获取历史消息 - 请求
 message GetHistoryMessagesPing {
+
+  // 消息来源
   LaanaPeer peer = 1;
+
+  // 最近一条消息的 msgSeq
   uint64 lastMsgSeq = 2;
+
+  // 获取的消息数量
   uint32 count = 3;
 }
 
+// 获取历史消息 - 响应
 message GetHistoryMessagesPong {
+
+  // 获取的消息列表
   repeated LaanaMessage messages = 1;
 }
 
+// 撤回消息 - 请求
 message WithdrawMessagePing {
+
+  // 消息的 msgSeq
   uint64 msgSeq = 1;
+
+  // 消息来源
   LaanaPeer peer = 2;
 }
 
+// 将消息标为已读 - 请求
 message MarkPeerMessageAsReadPing {
+
+  // 消息来源
   LaanaPeer peer = 1;
 }
 
+// 获取转发消息 - 请求
 message GetForwardedMessagesPing {
+
+  // 转发的消息的 msgSeq 列表
   string refId = 1;
 }
 
+// 获取转发消息 - 响应
 message GetForwardedMessagesPong {
+
+  // 转发的消息
   LaanaMessage.ForwardedMessage forwardMessage = 1;
 }

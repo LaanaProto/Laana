@@ -3,22 +3,40 @@ package Laana;
 
 import 'entity/file.proto';
 
+// Laana Peer，可以是好友或群
 message LaanaPeer {
   enum Type {
+
+    // 好友
     BUDDY = 0;
+
+    // 群
     GROUP = 1;
   }
 
+  // 类型
   Type type = 1;
+
+  // Uin 或群号
   string uin = 2;
 }
 
+// Laana 消息
 message LaanaMessage {
+
+  // 消息序列号
   uint64 msgSeq = 1;
+
+  // 时间戳
   uint64 time = 2;
+
+  // 发送者 Uin
   string senderUin = 3;
+
+  // 消息来源
   LaanaPeer peer = 4;
 
+  // 消息类型及内容，不同消息类型的介绍见下方
   oneof content {
     Bubble bubble = 11;
     NormalFile file = 12;
@@ -38,121 +56,224 @@ message LaanaMessage {
     ExtendedMessage extendedMessage = 99;
   }
 
+  // 气泡消息，也即传统的图文混排消息
   message Bubble {
+
+    // 消息包含的段落
     repeated Segment segments = 1;
+
+    // 引用（回复）的消息的 msgSeq
     optional uint64 repliedMsgSeq = 2;
 
     message Segment {
       oneof content {
+
+        // 一个 Segment 可以是纯文本
         string text = 1;
+
+        // 一个 Segment 可以是 QQ 表情
         uint32 face = 2;
+
+        // 一个 Segment 可以是 At（提及）某人
         At at = 3;
+
+        // 一个 Segment 可以是图片
         LaanaFile image = 4;
       }
 
       message At {
         reserved 2;
 
+        // 被提及人的 Uin
         string uin = 1;
+
+        // 被提及人的昵称
         string name = 3;
       }
     }
   }
 
+  // 普通文件消息
   message NormalFile {
+
+    // 文件
     LaanaFile file = 1;
+
+    // 文件名
     string name = 2;
+
+    // 文件大小
     uint64 size = 3;
   }
 
+  // 单张图片消息
   message SingleImage {
+
+    // 图片
     LaanaFile image = 1;
+
+    // 图片描述
     string displayText = 2; // 发送图片时的文字描述，默认为 [图片]
   }
 
+  // 来自 QQ 表情市场的表情消息
   message MarketFace {
+
+    // 表情包 ID
     uint32 facePackageId = 1;
+
+    // 表情 ID
     string faceId = 2;
+
+    // 表情的 key
     string faceKey = 3;
 
-    string displayText = 11; // 发送表情时的文字描述，默认为 [动画表情]
-  }
-
-  message Video {
-    LaanaFile video = 1;
-    optional uint32 duration = 2; // 视频时长，单位为秒，若不提供则由服务端解析
-  }
-
-  message Voice {
-    LaanaFile voice = 1;
-    uint32 duration = 2;
-  }
-
-  message LinkCard {
-    string url = 1;
-    string title = 2;
-    optional string description = 3;
-    optional LaanaFile image = 4;
-  }
-
-  message ContactCard {
-    enum Type {
-      BUDDY = 0;
-      GROUP = 1;
-    }
-
-    Type type = 1;
-    string uin = 2;
-  }
-
-  message MusicCard {
-    enum Source {
-      QQ_MUSIC = 0;
-      NETEASE_MUSIC = 1;
-      CUSTOM = 2;
-    }
-
-    Source source = 1;
-    string id = 2;
-  }
-
-  message LocationCard {
-    double latitude = 1;
-    double longitude = 2;
-    string title = 3;
-    string address = 4;
-  }
-
-  message ForwardedMessageRef {
-    string refId = 1;
-
+    // 发送表情时的文字描述，默认为 [动画表情]
     string displayText = 11;
   }
 
-  message ForwardedMessage {
+  // 视频消息
+  message Video {
+
+    // 视频
+    LaanaFile video = 1;
+
+    // 视频时长，单位为秒，若不提供则由服务端解析
+    optional uint32 duration = 2;
+  }
+
+  // 语音消息
+  message Voice {
+
+    // 语音
+    LaanaFile voice = 1;
+
+    // 语音时长，单位为秒
+    uint32 duration = 2;
+  }
+
+  // 链接卡片消息
+  message LinkCard {
+
+    // 卡片链接
+    string url = 1;
+
+    // 卡片标题
+    string title = 2;
+
+    // 卡片描述
+    optional string description = 3;
+
+    // 卡片预览图片
+    optional LaanaFile image = 4;
+  }
+
+  // 推荐联系人卡片消息
+  message ContactCard {
+    enum Type {
+
+      // 好友
+      BUDDY = 0;
+
+      // 群
+      GROUP = 1;
+    }
+
+    // 联系人类型
+    Type type = 1;
+
+    // 联系人 Uin
+    string uin = 2;
+  }
+
+  // 音乐卡片消息
+  message MusicCard {
+    enum Source {
+
+      // QQ 音乐
+      QQ_MUSIC = 0;
+
+      // 网易云音乐
+      NETEASE_MUSIC = 1;
+
+      // 自定义
+      CUSTOM = 2;
+    }
+
+    // 音乐来源
+    Source source = 1;
+
+    // 音乐 ID
+    string id = 2;
+  }
+
+  // 位置卡片消息
+  message LocationCard {
+
+    // 纬度
+    double latitude = 1;
+
+    // 经度
+    double longitude = 2;
+
+    // 标题
+    string title = 3;
+
+    // 描述
+    string address = 4;
+  }
+
+  // 合并转发消息引用
+  message ForwardedMessageRef {
+
+    // 转发消息的引用 ID，用于获取转发消息本身
     string refId = 1;
 
+    // 转发的消息
+    string displayText = 11;
+  }
+
+  // 合并转发消息
+  message ForwardedMessage {
+
+    // 转发消息的引用 ID
+    string refId = 1;
+
+    // 包含的消息
     repeated LaanaMessage messages = 11;
   }
 
+  // Xml 消息
   message XmlMessage {
+
+    // Xml 内容
     string xml = 1;
   }
 
   // 卡片消息
   message ArkMessage {
+
+    // Json 内容
     string json = 1;
   }
 
   // 未知消息，用于存储无法解析的消息
   message UnknownMessage {
-    string rawContent = 1; // Json 序列化的消息内容
-    optional string typeIdentifier = 2; // 用于标识消息类型，以便识别这些标识符的客户端可以解析消息
+
+    // Json 序列化的消息内容
+    string rawContent = 1;
+
+    // 用于标识消息类型，以便识别这些标识符的客户端可以解析消息
+    optional string typeIdentifier = 2;
   }
 
   // 扩展消息，与 UnknownMessage 的区别在于，ExtendedMessage 的 content 是 protobuf 序列化的消息
   message ExtendedMessage {
+
+    // 消息类型
     string type = 1;
+
+    // 消息内容
     bytes content = 2;
   }
 }

@@ -6,10 +6,19 @@ import 'event/buddy_event.proto';
 import 'event/group_event.proto';
 import 'event/request_event.proto';
 
+// 所有事件的包装器
 message LaanaEventWrapper {
+
+  // 事件 ID
   string eventId = 1;
+
+  // 时间戳
   uint64 time = 2;
+
+  // 接收事件的机器人 Uin
   string botUin = 3;
+
+  // 用于区分事件类型。不同事件的介绍详见对应的 .proto 文件
   oneof event {
     LaanaBuddyAddedEvent buddyAddedEvent = 101;
     LaanaBuddyMessageWithdrawalEvent buddyMessageWithdrawEvent = 102;
@@ -34,11 +43,17 @@ message LaanaEventWrapper {
     LaanaBotOnlineEvent botOnlineEvent = 1001;
     LaanaBotOfflineEvent botOfflineEvent = 1002;
 
+    // 扩展事件
     LaanaExtendedEvent extendedEvent = 9999;
   }
 }
 
+// 扩展事件
 message LaanaExtendedEvent {
+
+  // 事件名称
   string eventName = 1;
+
+  // 事件数据
   bytes eventData = 2;
 }

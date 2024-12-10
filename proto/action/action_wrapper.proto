@@ -7,10 +7,14 @@ import 'action/group_action.proto';
 import 'action/request_action.proto';
 import 'action/file_action.proto';
 
+// 所有 API 请求的包装器
 message LaanaActionPing {
   reserved 102, 108, 203, 313, 314, 315;
 
+  // 客户端请求的序列号，用于区分不同的请求
   uint64 clientPingSeq = 1;
+
+  // 用于区分请求类型。不同 API 请求的介绍详见对应的 .proto 文件
   oneof ping {
     SendMessagePing sendMessage = 101;
     // SendPackedMessagesPing sendPackedMessages = 102;
@@ -58,27 +62,39 @@ message LaanaActionPing {
     DeleteGroupFilePing deleteGroupFile = 508;
     DeleteGroupFolderPing deleteGroupFolder = 509;
 
+    // 扩展动作
     ExtendedActionPing extendedAction = 9999;
   }
 }
 
+// 扩展动作的请求数据
 message ExtendedActionPing {
+
+  // 动作名称
   string actionName = 1;
+
+  // 动作数据
   bytes actionData = 2;
 }
 
+// 如果请求成功，且 API 本身不需要返回数据，则返回此消息
 message GeneralSuccessPong {
   bool success = 1;
 }
 
+// 如果请求失败，则返回此消息
 message FailedPong {
   string reason = 1;
 }
 
+// 所有 API 响应数据的包装器
 message LaanaActionPong {
   reserved 102, 108, 203, 313, 314, 315;
 
+  // 对应请求的客户端请求序列号
   uint64 clientPingSeq = 1;
+
+  // 用于区分响应类型。不同 API 响应的介绍详见对应的 .proto 文件
   oneof pong {
     FailedPong failed = 11;
 
@@ -128,11 +144,17 @@ message LaanaActionPong {
     GeneralSuccessPong deleteGroupFile = 508;
     GeneralSuccessPong deleteGroupFolder = 509;
 
+    // 扩展动作
     ExtendedActionPong extendedAction = 9999;
   }
 }
 
+// 扩展动作的响应数据
 message ExtendedActionPong {
+
+  // 动作名称
   string actionName = 1;
+
+  // 动作数据
   bytes pongData = 2;
 }

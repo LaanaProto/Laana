@@ -1,96 +1,203 @@
 syntax = 'proto3';
 package Laana;
 
+// 群管理员变更事件
 message LaanaGroupAdminChangeEvent {
   enum Operation {
+
+    // 设置
     SET = 0;
+
+    // 取消
     UNSET = 1;
   }
 
+  // 群号
   string groupCode = 1;
+
+  // 变更的群成员 Uin
   string targetUin = 2;
+
+  // 操作
   Operation operation = 3;
 }
 
+// 设置群精华消息事件
 message LaanaGroupEssenceMessageEvent {
   enum Operation {
+
+    // 设置
     SET = 0;
+
+    // 取消
     UNSET = 1;
   }
 
+  // 群号
   string groupCode = 1;
+
+  // 消息序列号
   uint64 msgSeq = 2;
+
+  // 操作
   Operation operation = 3;
+
+  // 操作者 Uin
   string operatorUin = 4;
 }
 
+// 群成员名片变更事件
 message LaanaGroupMemberCardChangeEvent {
+
+  // 群号
   string groupCode = 1;
+
+  // 变更的群成员 Uin
   string targetUin = 2;
+
+  // 新名片
   string newCard = 3;
+
+  // 旧名片
   string oldCard = 4;
+
+  // 操作者 Uin
   optional string operatorUin = 5;
 }
 
+// 群成员增加事件
 message LaanaGroupMemberIncreaseEvent {
+
+  // 群号
   string groupCode = 1;
+
+  // 新成员 Uin
   string newMemberUin = 2;
+
+  // 操作者 Uin（若有）
   optional string operatorUin = 3;
+
+  // 邀请者 Uin（若有）
   optional string invitorUin = 4;
 }
 
+// 群成员减少事件
 message LaanaGroupMemberDecreaseEvent {
+
+  // 群号
   string groupCode = 1;
+
+  // 旧成员 Uin
   string oldMemberUin = 2;
+
+  // 操作者 Uin（若有）
   optional string operatorUin = 3;
 }
 
+// 群成员专属头衔变更事件
 message LaanaGroupMemberTitleChangeEvent {
+
+  // 群号
   string groupCode = 1;
+
+  // 变更的群成员 Uin
   string targetUin = 2;
+
+  // 新专属头衔
   string newTitle = 3;
+
+  // 旧专属头衔
   optional string oldTitle = 4;
+
+  // 操作者 Uin
   string operatorUin = 5;
 }
 
+// 群消息撤回事件
 message LaanaGroupMessageWithdrawalEvent {
+
+  // 群号
   string groupCode = 1;
+
+  // 撤回的消息序列号
   uint64 msgSeq = 2;
+
+  // 操作者 Uin
   string operatorUin = 3;
 }
 
+// 群成员被禁言事件
 message LaanaGroupShutUpMemberEvent {
+
+  // 群号
   string groupCode = 1;
+
+  // 被禁言的群成员 Uin
   string targetUin = 2;
+
+  // 禁言时长，单位为秒
   uint32 duration = 3;
+
+  // 操作者 Uin
   string operatorUin = 4;
 }
 
+// 群被全员禁言事件
 message LaanaGroupShutUpAllEvent {
+
+  // 群号
   string groupCode = 1;
+
+  // 操作者 Uin
   string operatorUin = 2;
 }
 
+// 群成员被解禁事件
 message LaanaGroupLiftShutUpMemberEvent {
+
+  // 群号
   string groupCode = 1;
+
+  // 被解禁的群成员 Uin
   string targetUin = 2;
+
+  // 操作者 Uin
   string operatorUin = 3;
 }
 
+// 群全体禁言解除事件
 message LaanaGroupLiftShutUpAllEvent {
+
+  // 群号
   string groupCode = 1;
+
+  // 操作者 Uin
   string operatorUin = 2;
 }
 
+// 群消息点赞事件
 message LaanaGroupEmojiLikeEvent {
   enum Operation {
+
+    // 点赞
     LIKE = 0;
+
+    // 取消点赞
     DISLIKE = 1;
   }
 
+  // 群号
   string groupCode = 1;
+
+  // 消息序列号
   uint64 msgSeq = 2;
+
+  // 表情 ID
   string emojiId = 3;
+
+  // 操作
   Operation operation = 4;
+
+  // 操作者 Uin
   string operatorUin = 5;
 }

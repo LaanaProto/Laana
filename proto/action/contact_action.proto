@@ -4,32 +4,52 @@ package Laana;
 import 'entity/user.proto';
 import 'entity/group.proto';
 
+// 获取所有好友 - 请求
 message GetAllBuddiesPing {
 }
 
+// 获取所有好友 - 响应
 message GetAllBuddiesPong {
+
+  // 好友 Uin 列表
   repeated string buddyUins = 1;
 }
 
+// 获取所有群组 - 请求
 message GetAllGroupsPing {
 }
 
+// 获取所有群组 - 响应
 message GetAllGroupsPong {
+
+  // 群号列表
   repeated string groupCodes = 1;
 }
 
+// 获取好友信息 - 请求
 message GetBuddyInfoPing {
+
+  // 好友 Uin
   string buddyUin = 1;
 }
 
+// 获取好友信息 - 响应
 message GetBuddyInfoPong {
+
+  // 好友信息
   LaanaUserEntity buddy = 1;
 }
 
+// 获取群组信息 - 请求
 message GetGroupInfoPing {
+
+  // 群号
   string groupCode = 1;
 }
 
+// 获取群组信息 - 响应
 message GetGroupInfoPong {
+
+  // 群组信息
   LaanaGroup group = 1;
 }

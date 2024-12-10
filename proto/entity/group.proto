@@ -1,11 +1,21 @@
 syntax = 'proto3';
 package Laana;
 
+// 群
 message LaanaGroup {
+
+  // 群号
   string groupCode = 1;
+
+  // 群名称
   string groupName = 2;
+
+  // 群人数
   uint32 memberCount = 3;
+
+  // 群容量
   uint32 maxMemberCount = 4;
 
-  optional string groupRemark = 11; // 群备注，类似好友备注
+  // 群备注，类似好友备注
+  optional string groupRemark = 11;
 }

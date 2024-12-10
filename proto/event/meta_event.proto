@@ -1,8 +1,10 @@
 syntax = 'proto3';
 package Laana;
 
+// 机器人上线事件
 message LaanaBotOnlineEvent {
 }
 
+// 机器人下线事件
 message LaanaBotOfflineEvent {
 }

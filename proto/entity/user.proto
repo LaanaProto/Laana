@@ -1,25 +1,48 @@
 syntax = 'proto3';
 package Laana;
 
+// Laana 用户
 message LaanaUserEntity {
   enum Sex {
+
+    // 未知 / 其他
     UNKNOWN = 0;
+
+    // 男
     MALE = 1;
+
+    // 女
     FEMALE = 2;
   }
 
+  // Uin
   string uin = 1;
+
+  // 昵称
   string nick = 2;
+
+  // 性别
   Sex sex = 3;
+
+  // 年龄
   optional uint32 age = 4;
+
+  // QID，用于辨别用户的另一种方式
   optional string qid = 5;
 
+  // 角色数据
   oneof roleData {
+
+    // 如果是作为好友被查询，则返回此数据
     BuddyRoleData buddyRoleData = 11;
+
+    // 如果是作为群成员被查询，则返回此数据
     GroupRoleData groupRoleData = 12;
   }
 
   message BuddyRoleData {
+
+    // 好友备注
     optional string remark = 1;
   }
 
@@ -28,16 +51,33 @@ message LaanaUserEntity {
 
     enum PermissionLevel {
       FALLBACK = 0;
+
+      // 普通成员
       NORMAL = 2;
+
+      // 管理员
       ADMIN = 3;
+
+      // 群主
       OWNER = 4;
     }
 
+    // 权限等级
     PermissionLevel permissionLevel = 1;
+
+    // 群昵称
     optional string groupNick = 2;
+
+    // 加群时间
     optional uint64 joinTime = 3;
+
+    // 最后发言时间
     uint64 lastSpeakTime = 4;
+
+    // 禁言时间
     uint64 shutUpTime = 6;
+
+    // 是否为机器人
     bool isRobot = 7;
   }
 }

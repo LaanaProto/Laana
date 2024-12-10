@@ -3,43 +3,80 @@ package Laana;
 
 import 'event/request_event.proto';
 
+// 处理好友添加请求 - 请求
 message HandleBuddyAddRequestPing {
   enum Operation {
+
+    // 接受
     ACCEPT = 0;
+
+    // 拒绝
     REJECT = 1;
+
+    // 忽略
     IGNORE = 2;
   }
 
+  // 请求 ID
   string buddyRequestId = 1;
+
+  // 操作
   Operation operation = 2;
 
+  // 拒绝理由
   optional string rejectionWords = 11;
 }
 
+// 处理群组加入请求 - 请求
 message HandleGroupJoinRequestPing {
+
+  // 操作
   enum Operation {
+
+    // 接受
     ACCEPT = 0;
+
+    // 拒绝
     REJECT = 1;
+
+    // 忽略
     IGNORE = 2;
   }
 
+  // 请求 ID
   string joinRequestId = 1;
+
+  // 操作
   Operation operation = 2;
 
+  // 拒绝理由
   optional string rejectionWords = 11;
 }
 
+// 处理群组邀请 - 请求
 message HandleGroupInvitationPing {
   enum Operation {
+
+    // 接受
     ACCEPT = 0;
+
+    // 拒绝
     REJECT = 1;
+
+    // 忽略
     IGNORE = 2;
   }
 
+  // 邀请 ID
   string invitationId = 1;
+
+  // 操作
   Operation operation = 2;
 }
 
+// 处理群组邀请 - 响应
 message HandleGroupInvitationPong {
-  LaanaSelfInvitedToGroupEvent.State nextState = 1; // 处理该邀请后，下一步的状态
+
+  // 处理该邀请后，下一步的状态
+  LaanaSelfInvitedToGroupEvent.State nextState = 1;
 }

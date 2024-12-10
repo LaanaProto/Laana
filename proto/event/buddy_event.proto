@@ -1,10 +1,14 @@
 syntax = 'proto3';
 package Laana;
 
+// 好友添加事件
 message LaanaBuddyAddedEvent {
+
+  // 好友 Uin
   string buddyUin = 1;
 }
 
+// 好友撤回消息事件
 message LaanaBuddyMessageWithdrawalEvent {
   string buddyUin = 1;
   string msgSeq = 2;
