@@ -145,12 +145,20 @@ message SetGroupMemberShutUpPing {
 
 // 设置全员禁言 - 请求
 message SetGroupShutUpAllPing {
+  enum Operation {
+
+    // 全员禁言
+    SHUT_UP = 0;
+
+    // 解除全员禁言
+    LIFT = 1;
+  }
 
   // 群号
   string groupCode = 1;
 
-  // 操作，禁言或解禁，false 为禁言，true 为解禁
-  bool lift = 2;
+  // 操作，全员禁言或解除全员禁言
+  Operation operation = 2;
 }
 
 // 踢出群成员 - 请求
