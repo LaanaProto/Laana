@@ -44,7 +44,7 @@ message LaanaSelfInvitedToGroupEvent {
     PENDING_AT_ADMIN = 1;
 
     // 邀请成功
-    SUCCEEDED = 2; // 邀请成功
+    SUCCEEDED = 2;
 
     // 一般的流程是：0 -> 1 -> 2
     // 有些群组可能不需要管理员审批，流程可能简化为：0 -> 2

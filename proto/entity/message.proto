@@ -112,8 +112,8 @@ message LaanaMessage {
     // 图片
     LaanaFile image = 1;
 
-    // 图片描述
-    string displayText = 2; // 发送图片时的文字描述，默认为 [图片]
+    // 发送图片时的文字描述，默认为 [图片]
+    string displayText = 2;
   }
 
   // 来自 QQ 表情市场的表情消息

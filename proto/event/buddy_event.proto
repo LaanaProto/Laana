@@ -10,6 +10,10 @@ message LaanaBuddyAddedEvent {
 
 // 好友撤回消息事件
 message LaanaBuddyMessageWithdrawalEvent {
+
+  // 好友 Uin
   string buddyUin = 1;
+
+  // 消息序列号
   string msgSeq = 2;
 }
