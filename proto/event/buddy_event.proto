@@ -6,5 +6,6 @@ message LaanaBuddyAddedEvent {
 }
 
 message LaanaBuddyMessageWithdrawalEvent {
-  string messageId = 1;
+  string buddyUin = 1;
+  string msgSeq = 2;
 }

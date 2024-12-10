@@ -19,7 +19,7 @@ message LaanaGroupEssenceMessageEvent {
   }
 
   string groupCode = 1;
-  string messageId = 2;
+  uint64 msgSeq = 2;
   Operation operation = 3;
   string operatorUin = 4;
 }
@@ -55,7 +55,7 @@ message LaanaGroupMemberTitleChangeEvent {
 
 message LaanaGroupMessageWithdrawalEvent {
   string groupCode = 1;
-  string messageId = 2;
+  uint64 msgSeq = 2;
   string operatorUin = 3;
 }
 
@@ -89,7 +89,7 @@ message LaanaGroupEmojiLikeEvent {
   }
 
   string groupCode = 1;
-  string messageId = 2;
+  uint64 msgSeq = 2;
   string emojiId = 3;
   Operation operation = 4;
   string operatorUin = 5;
