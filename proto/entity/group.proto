@@ -1,7 +1,7 @@
 syntax = 'proto3';
 package Laana;
 
-// 群
+// Laana 群
 message LaanaGroup {
 
   // 群号
