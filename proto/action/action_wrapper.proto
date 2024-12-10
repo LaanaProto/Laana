@@ -8,7 +8,7 @@ import 'action/request_action.proto';
 import 'action/file_action.proto';
 
 message LaanaActionPing {
-  reserved 102, 203, 313, 314, 315;
+  reserved 102, 108, 203, 313, 314, 315;
 
   uint64 clientPingSeq = 1;
   oneof ping {
@@ -19,7 +19,7 @@ message LaanaActionPing {
     GetHistoryMessagesPing getHistoryMessages = 105;
     WithdrawMessagePing withdrawMessage = 106;
     MarkPeerMessageAsReadPing markPeerMessageAsRead = 107;
-    ForwardMessagePing forwardMessage = 108;
+    // ForwardMessagePing forwardMessage = 108;
     GetForwardedMessagesPing getForwardedMessages = 109;
 
     GetAllBuddiesPing getAllBuddies = 201;
@@ -76,7 +76,7 @@ message FailedPong {
 }
 
 message LaanaActionPong {
-  reserved 102, 203, 313, 314, 315;
+  reserved 102, 108, 203, 313, 314, 315;
 
   uint64 clientPingSeq = 1;
   oneof pong {
@@ -89,7 +89,7 @@ message LaanaActionPong {
     GetHistoryMessagesPong getHistoryMessages = 105;
     GeneralSuccessPong withdrawMessage = 106;
     GeneralSuccessPong markPeerMessageAsRead = 107;
-    GeneralSuccessPong forwardMessage = 108;
+    // GeneralSuccessPong forwardMessage = 108;
     GetForwardedMessagesPong getForwardedMessages = 109;
 
     GetAllBuddiesPong getAllBuddies = 201;

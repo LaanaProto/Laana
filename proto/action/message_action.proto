@@ -78,18 +78,6 @@ message MarkPeerMessageAsReadPing {
   LaanaPeer peer = 1;
 }
 
-message ForwardMessagePing {
-  enum Operation {
-    AS_SINGLETONS = 0;
-    AS_PACKED = 1;
-  }
-
-  Operation operation = 1;
-  LaanaPeer sourcePeer = 2;
-  repeated uint64 msgSeqs = 3;
-  LaanaPeer targetPeer = 4;
-}
-
 message GetForwardedMessagesPing {
   string refId = 1;
 }
