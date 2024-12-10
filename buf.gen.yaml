@@ -1,0 +1,11 @@
+version: v2
+clean: true
+managed:
+  enabled: true
+plugins:
+  - remote: buf.build/bufbuild/es:v2.2.3
+    opt: target=ts
+    out: typescript/@laana-proto/def/src/generated
+    include_imports: true
+  - remote: buf.build/protocolbuffers/csharp:v29.1
+    out: csharp/LaanaProto/LaanaProto.Definition/Generated

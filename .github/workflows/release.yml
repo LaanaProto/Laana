@@ -1,0 +1,45 @@
+name: Release new version
+
+on:
+  release:
+    types: [ created ]
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js # For installing buf and publishing to NPM
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Setup .NET # For publishing to NuGet
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Install Root Dependencies
+        run: npm install
+
+      - name: Generate Code
+        run: buf generate
+
+      - name: Publish on NPM
+        run: |
+          cd ./typescript/@laana-proto/def/
+          npm ci
+          mkdir src
+          mkdir src/generated
+          npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+
+      - name: Publish on NuGet
+        run: |
+          cd ./csharp/LaanaProto/LaanaProto.Definition/
+          dotnet pack
+          dotnet nuget push ./bin/Release/*.nupkg --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json

@@ -19,10 +19,4 @@
         <None Include="./README.md" Pack="true" PackagePath="/"/>
         <None Include="./LICENSE" Pack="true" PackagePath="/"/>
     </ItemGroup>
-
-    <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-        <Exec Command="echo Generating C# code from proto files..." />
-        <Exec Command="protoc -I ../../../proto ../../../proto/action/*.proto ../../../proto/event/*.proto ../../../proto/entity/*.proto ../../../proto/*.proto --csharp_out ./Generated" />
-    </Target>
-
 </Project>

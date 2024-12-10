@@ -1,0 +1,22 @@
+{
+  "name": "laana",
+  "version": "0.6.0",
+  "private": true,
+  "description": "Modern chatbot protocol",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LaanaProto/Laana.git"
+  },
+  "scripts": {
+    "build": "buf generate"
+  },
+  "author": "Young",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LaanaProto/Laana/issues"
+  },
+  "homepage": "https://github.com/LaanaProto/Laana#readme",
+  "dependencies": {
+    "@bufbuild/buf": "^1.47.2"
+  }
+}

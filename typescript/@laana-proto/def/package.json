@@ -11,10 +11,9 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "prepublishOnly": "node ./scripts/prepublish/generate-ts-files.js && node scripts/prepublish/export-all-classes.js"
+    "prepublishOnly": "node scripts/prepublish/export-all-classes.js"
   },
-  "devDependencies": {
-    "@protobuf-ts/plugin": "^2.9.4",
-    "fs-extra": "^11.2.0"
+  "dependencies": {
+    "@bufbuild/protobuf": "^2.2.3"
   }
 }
