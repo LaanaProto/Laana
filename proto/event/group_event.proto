@@ -57,12 +57,6 @@ message LaanaGroupMemberCardChangeEvent {
 
   // 新名片
   string newCard = 3;
-
-  // 旧名片
-  string oldCard = 4;
-
-  // 操作者 Uin
-  optional string operatorUin = 5;
 }
 
 // 群成员增加事件
@@ -105,12 +99,6 @@ message LaanaGroupMemberTitleChangeEvent {
 
   // 新专属头衔
   string newTitle = 3;
-
-  // 旧专属头衔
-  optional string oldTitle = 4;
-
-  // 操作者 Uin
-  string operatorUin = 5;
 }
 
 // 群消息撤回事件
