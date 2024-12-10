@@ -14,7 +14,7 @@ message LaanaPeer {
 }
 
 message LaanaMessage {
-  string msgId = 1;
+  uint64 msgSeq = 1;
   uint64 time = 2;
   string senderUin = 3;
   LaanaPeer peer = 4;
@@ -40,7 +40,7 @@ message LaanaMessage {
 
   message Bubble {
     repeated Segment segments = 1;
-    optional string repliedMsgId = 2;
+    optional uint64 repliedMsgSeq = 2;
 
     message Segment {
       oneof content {

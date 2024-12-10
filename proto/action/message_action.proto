@@ -38,12 +38,12 @@ message SendMessagePing {
 }
 
 message SendMessagePong {
-  string msgId = 1;
+  uint64 msgSeq = 1;
 }
 
 message GetMessagePing {
-  string msgId = 1;
-  LaanaPeer peer = 4;
+  uint64 msgSeq = 1;
+  LaanaPeer peer = 2;
 }
 
 message GetMessagePong {
@@ -51,7 +51,8 @@ message GetMessagePong {
 }
 
 message GetMessagesPing {
-  repeated string msgIds = 1;
+  repeated string msgSeqs = 1;
+  LaanaPeer peer = 2;
 }
 
 message GetMessagesPong {
@@ -59,8 +60,8 @@ message GetMessagesPong {
 }
 
 message GetHistoryMessagesPing {
-  LaanaPeer targetPeer = 1;
-  string lastMsgId = 2;
+  LaanaPeer peer = 1;
+  uint64 lastMsgSeq = 2;
   uint32 count = 3;
 }
 
@@ -69,7 +70,8 @@ message GetHistoryMessagesPong {
 }
 
 message WithdrawMessagePing {
-  string msgId = 1;
+  uint64 msgSeq = 1;
+  LaanaPeer peer = 2;
 }
 
 message MarkPeerMessageAsReadPing {
@@ -83,8 +85,9 @@ message ForwardMessagePing {
   }
 
   Operation operation = 1;
-  repeated string msgIds = 2;
-  LaanaPeer targetPeer = 3;
+  LaanaPeer sourcePeer = 2;
+  repeated uint64 msgSeqs = 3;
+  LaanaPeer targetPeer = 4;
 }
 
 message GetForwardedMessagesPing {
