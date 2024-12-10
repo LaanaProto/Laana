@@ -2,7 +2,6 @@ syntax = 'proto3';
 package Laana;
 
 import 'entity/file.proto';
-import 'entity/message.proto';
 import 'entity/user.proto';
 
 // 获取所有群成员 Uin - 请求
