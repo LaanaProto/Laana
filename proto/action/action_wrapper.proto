@@ -10,7 +10,7 @@ import 'action/file_action.proto';
 message LaanaActionPing {
   reserved 102, 203, 313, 314, 315;
 
-  string clientPingId = 1;
+  uint64 clientPingSeq = 1;
   oneof ping {
     SendMessagePing sendMessage = 101;
     // SendPackedMessagesPing sendPackedMessages = 102;
@@ -78,7 +78,7 @@ message FailedPong {
 message LaanaActionPong {
   reserved 102, 203, 313, 314, 315;
 
-  string clientPingId = 1;
+  uint64 clientPingSeq = 1;
   oneof pong {
     FailedPong failed = 11;
 
