@@ -51,8 +51,9 @@ message LaanaMessage {
       }
 
       message At {
+        reserved 2;
+
         string uin = 1;
-        string groupCode = 2;
         string name = 3;
       }
     }
