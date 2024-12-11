@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaanaProto.Definition", "LaanaProto.Definition\LaanaProto.Definition.csproj", "{0324FABC-72AF-4A47-857F-071336690464}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LaanaProto.Abstraction", "LaanaProto.Abstraction\LaanaProto.Abstraction.csproj", "{0324FABC-72AF-4A47-857F-071336690464}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

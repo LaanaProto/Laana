@@ -4,13 +4,14 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <PackageId>LaanaProto.Definition</PackageId>
-        <Version>0.6.0</Version>
+        <PackageId>LaanaProto.Abstraction</PackageId>
+        <Version>1.0.1</Version>
         <Authors>Young</Authors>
         <Description>Type definition for Laana</Description>
         <PackageReadmeFile>./README.md</PackageReadmeFile>
         <PackageLicenseFile>./LICENSE</PackageLicenseFile>
         <RepositoryUrl>https://github.com/LaanaProto/Laana</RepositoryUrl>
+        <RootNamespace>Laana</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

@@ -3,7 +3,6 @@ name: Release new version
 on:
   release:
     types: [ created ]
-  workflow_dispatch:
 
 jobs:
   generate:
@@ -16,6 +15,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          registry-url: https://registry.npmjs.org/
 
       - name: Setup .NET # For publishing to NuGet
         uses: actions/setup-dotnet@v4
@@ -26,20 +26,18 @@ jobs:
         run: npm install
 
       - name: Generate Code
-        run: buf generate
+        run: npm run build
 
       - name: Publish on NPM
         run: |
           cd ./typescript/@laana-proto/def/
           npm ci
-          mkdir src
-          mkdir src/generated
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
 
       - name: Publish on NuGet
         run: |
-          cd ./csharp/LaanaProto/LaanaProto.Definition/
+          cd ./csharp/LaanaProto/LaanaProto.Abstraction/
           dotnet pack
           dotnet nuget push ./bin/Release/*.nupkg --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json

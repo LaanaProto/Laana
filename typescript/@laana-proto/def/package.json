@@ -1,6 +1,6 @@
 {
   "name": "@laana-proto/def",
-  "version": "0.6.0",
+  "version": "1.0.1",
   "description": "Type definition for Laana",
   "main": "src/index.ts",
   "repository": {

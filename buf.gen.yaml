@@ -8,4 +8,4 @@ plugins:
     out: typescript/@laana-proto/def/src/generated
     include_imports: true
   - remote: buf.build/protocolbuffers/csharp:v29.1
-    out: csharp/LaanaProto/LaanaProto.Definition/Generated
+    out: csharp/LaanaProto/LaanaProto.Abstraction/Generated
