@@ -5,49 +5,42 @@ import 'event/request_event.proto';
 
 // 处理好友添加请求 - 请求
 message HandleBuddyAddRequestPing {
-  enum Operation {
-
-    // 接受
-    ACCEPT = 0;
-
-    // 拒绝
-    REJECT = 1;
-
-    // 忽略
-    IGNORE = 2;
-  }
 
   // 请求 ID
   string buddyRequestId = 1;
 
-  // 操作
-  Operation operation = 2;
+  // 操作，接受、拒绝、忽略
+  oneof operation {
 
-  // 拒绝理由
-  optional string rejectionWords = 11;
+    // 接受
+    bool accept = 2;
+
+    // 拒绝，并且包含拒绝理由
+    string rejectWithWords = 3;
+
+    // 忽略
+    bool ignore = 4;
+  }
 }
 
 // 处理群组加入请求 - 请求
 message HandleGroupJoinRequestPing {
 
-  // 操作
-  enum Operation {
-
-    // 接受
-    ACCEPT = 0;
-
-    // 拒绝
-    REJECT = 1;
-
-    // 忽略
-    IGNORE = 2;
-  }
-
   // 请求 ID
   string joinRequestId = 1;
 
-  // 操作
-  Operation operation = 2;
+  // 操作，接受、拒绝、忽略
+  oneof operation {
+
+    // 接受
+    bool accept = 2;
+
+    // 拒绝，并且包含拒绝理由
+    string rejectWithWords = 3;
+
+    // 忽略
+    bool ignore = 4;
+  }
 
   // 拒绝理由
   optional string rejectionWords = 11;
@@ -55,6 +48,8 @@ message HandleGroupJoinRequestPing {
 
 // 处理群组邀请 - 请求
 message HandleGroupInvitationPing {
+
+  // 操作，接受、拒绝、忽略
   enum Operation {
 
     // 接受
