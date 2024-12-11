@@ -58,6 +58,7 @@ message LaanaServerSideHandshake {
   // 服务端的名称，例如 Lagrange.Core，用于区分不同的实现
   string serverName = 3;
 
+  // 握手结果
   enum Result {
 
     // 握手成功

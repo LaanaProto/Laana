@@ -2,10 +2,11 @@ syntax = 'proto3';
 package Laana;
 
 // Laana 文件
+//
+// 在实现时，所有的 Laana 文件都应该被对应一个缓存 ID。
 message LaanaFile {
 
-  // 一个 Laana 文件可以是一个 URL，一个缓存 ID，或者一个原始的字节流。
-  // 在实现时，所有的 Laana 文件都应该被转换为一个缓存 ID。
+  // 文件的 URI，可以是 URL，缓存 ID，或者原始字节流
   oneof uri {
     string url = 1;
     string cacheId = 2;

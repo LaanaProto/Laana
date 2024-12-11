@@ -9,18 +9,44 @@ message LaanaOutgoingMessage {
 
   // 消息类型及内容，对于不同类型的解释详见 LaanaMessage
   oneof content {
+
+    // 气泡消息
     LaanaMessage.Bubble bubble = 11;
+
+    // 普通文件消息
     LaanaMessage.NormalFile file = 12;
+
+    // 单张图片消息
     LaanaMessage.SingleImage singleImage = 13;
+
+    // 来自 QQ 表情市场的表情消息
     LaanaMessage.MarketFace marketFace = 14;
+
+    // 视频消息
     LaanaFile video = 15;
+
+    // 语音消息
     LaanaFile voice = 16;
+
+    // 链接卡片消息
     LaanaMessage.LinkCard linkCard = 17;
+
+    // 推荐联系人卡片消息
     LaanaMessage.ContactCard contactCard = 18;
+
+    // 音乐卡片消息
     LaanaMessage.MusicCard musicCard = 19;
+
+    // 位置卡片消息
     LaanaMessage.LocationCard locationCard = 20;
+
+    // 构造（伪造）的转发消息
     ConstructedForwardedMessage forwardedMessage = 21;
+
+    // Xml 消息
     LaanaMessage.XmlMessage xmlMessage = 22;
+
+    // 卡片消息
     LaanaMessage.ArkMessage arkMessage = 23;
   }
 
@@ -29,6 +55,7 @@ message LaanaOutgoingMessage {
     // 转发的消息节点
     repeated Node nodes = 1;
 
+    // 转发的消息节点
     message Node {
 
       // 发送者 Uin

@@ -19,6 +19,8 @@ message UploadCachePong {
 
 // 获取缓存 - 请求
 message PrepareCacheByUrlPing {
+
+  // 请求的 Method
   enum Method {
     GET = 0;
     POST = 1;
@@ -112,9 +114,6 @@ message CreateGroupFolderPing {
 
   // 文件夹名
   string name = 2;
-
-  // 父文件夹 ID，但 QQ 不支持文件夹嵌套
-  // optional string parentFolderId = 3;
 }
 
 // 创建群文件夹 - 响应

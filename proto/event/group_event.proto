@@ -3,6 +3,8 @@ package Laana;
 
 // 群管理员变更事件
 message LaanaGroupAdminChangeEvent {
+
+  // 操作，设置或取消
   enum Operation {
 
     // 设置
@@ -24,6 +26,8 @@ message LaanaGroupAdminChangeEvent {
 
 // 设置群精华消息事件
 message LaanaGroupEssenceMessageEvent {
+
+  // 操作，设置或取消
   enum Operation {
 
     // 设置
@@ -165,6 +169,8 @@ message LaanaGroupLiftShutUpAllEvent {
 
 // 群消息点赞事件
 message LaanaGroupEmojiLikeEvent {
+
+  // 操作，点赞或取消点赞
   enum Operation {
 
     // 点赞

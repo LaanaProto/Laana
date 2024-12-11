@@ -49,6 +49,7 @@ message LaanaUserEntity {
   message GroupRoleData {
     reserved 5;
 
+    // 权限等级
     enum PermissionLevel {
       FALLBACK = 0;
 

@@ -35,6 +35,12 @@ message LaanaSomeoneRequestToJoinGroupEvent {
 
 // 有人邀请 Bot 加入群组事件
 message LaanaSelfInvitedToGroupEvent {
+
+  // 所处状态
+  // 一般的流程是：0 -> 1 -> 2
+  // 有些群组可能不需要管理员审批，流程可能简化为：0 -> 2
+  // 有些群组甚至不需要被邀请者同意，流程可能简化为：2
+  // 流程也可能在任何时候被邀请者或邀请者中断。
   enum State {
 
     // 需要邀请者同意
@@ -45,11 +51,6 @@ message LaanaSelfInvitedToGroupEvent {
 
     // 邀请成功
     SUCCEEDED = 2;
-
-    // 一般的流程是：0 -> 1 -> 2
-    // 有些群组可能不需要管理员审批，流程可能简化为：0 -> 2
-    // 有些群组甚至不需要被邀请者同意，流程可能简化为：2
-    // 流程也可能在任何时候被邀请者或邀请者中断。
   }
 
   // 请求 ID
