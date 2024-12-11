@@ -70,13 +70,13 @@ message LaanaUserEntity {
     optional string groupNick = 2;
 
     // 加群时间
-    optional uint64 joinTime = 3;
+    uint64 joinTime = 3;
 
     // 最后发言时间
     uint64 lastSpeakTime = 4;
 
-    // 禁言时间
-    uint64 shutUpTime = 6;
+    // 禁言时间戳
+    uint64 shutUpTimestamp = 6;
 
     // 是否为机器人
     bool isRobot = 7;
