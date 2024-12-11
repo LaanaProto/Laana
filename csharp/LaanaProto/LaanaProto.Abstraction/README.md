@@ -1,4 +1,4 @@
-# `LaanaProto.Definition`
+# `LaanaProto.Abstraction`
 
 Type definitions for Laana Protocol. Generated from `.proto` files.
 
